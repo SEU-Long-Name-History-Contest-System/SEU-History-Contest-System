@@ -4,6 +4,8 @@
 # History Contest
 HistoryContest.Server/Properties/launchSettings.json
 HistoryContest.Wiki/index.html
+wwwroot/dist/
+package-lock.json
 
 # User-specific files
 *.suo

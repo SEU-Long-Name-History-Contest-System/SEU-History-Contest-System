@@ -5,12 +5,21 @@ echo Restoring Server-side Nuget Packages...
 cd ./HistoryContest.Server
 call dotnet restore
 
+echo.
+echo Building Server and Database...
+call dotnet ef database update
+
 cd ../
 
 echo. 
 echo Restoring Client-side NPM Packages...
 cd ./HistoryContest.Client
 call npm install
+
+echo. 
+echo Building Webpack...
+call node node_modules/webpack/bin/webpack.js --config webpack.config.vendor.js --env.prod
+call node node_modules/webpack/bin/webpack.js --env.prod
 
 cd ../
 

@@ -27,7 +27,7 @@ module.exports = (env) => {
             ]
         },
         output: { 
-            path: path.join(__dirname, 'wwwroot', 'dist'),
+            path: path.join(__dirname, '../wwwroot', 'dist'),
             publicPath: '/dist/',
             filename: '[name].js',
             library: '[name]_[hash]'
@@ -39,7 +39,7 @@ module.exports = (env) => {
                 'process.env.NODE_ENV': isDevBuild ? '"development"' : '"production"'
             }),
             new webpack.DllPlugin({
-                path: path.join(__dirname, 'wwwroot', 'dist', '[name]-manifest.json'),
+                path: path.join(__dirname, '../wwwroot', 'dist', '[name]-manifest.json'),
                 name: '[name]_[hash]'
             })
         ].concat(isDevBuild ? [] : [

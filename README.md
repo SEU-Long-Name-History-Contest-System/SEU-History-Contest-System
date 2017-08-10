@@ -18,7 +18,7 @@ Azure管理中心:https://portal.azure.com
 
 ### 配置 & 开发流程
 
-1. **项目Clone到本地后，请先运行`restore_packages.bat`, 安装前端（NPM），后端（Nuget）的各种包依赖。**
+1. **项目Clone到本地后，请先运行`build.bat`, 安装前端（NPM），后端（Nuget）的各种包依赖并生成项目。**
 2. 对于后端：在Server文件夹中工作。打开`HistoryContest.sln`，用Visual Studio开发。
 3. 对于前端：在Client文件夹中工作。运行`run_server.bat`自动配置、运行服务端程序于本地。
    Development环境下，前端文件的更改会被自动更新，无需运行`webpack_build.bat`重新打包。
@@ -38,15 +38,16 @@ Azure管理中心:https://portal.azure.com
   1. [ASP.NET Core MVC](https://docs.microsoft.com/en-us/aspnet/core/tutorials/)
      * [Web API](https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-web-api)
      * [StaticFiles Middleware](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/static-files)
-     * [Routing Middleware](https://docs.microsoft.com/en-us/aspnet/core/mvc/controllers/routing)​
-  2. [.NET Core SPA Services](https://blogs.msdn.microsoft.com/webdev/2017/02/14/building-single-page-applications-on-asp-net-core-with-javascriptservices/)
+     * [Routing Middleware](https://docs.microsoft.com/en-us/aspnet/core/mvc/controllers/routing)
+  2. [Entity Framework Core](https://docs.microsoft.com/zh-cn/ef/core/)
+  3. [.NET Core SPA Services](https://blogs.msdn.microsoft.com/webdev/2017/02/14/building-single-page-applications-on-asp-net-core-with-javascriptservices/)
      * [Server-side Prerendering](https://github.com/aspnet/JavaScriptServices/tree/dev/src/Microsoft.AspNetCore.SpaServices#server-side-prerendering)
      * [Webpack Middleware](https://github.com/aspnet/JavaScriptServices/tree/dev/src/Microsoft.AspNetCore.SpaServices#webpack-dev-middleware)
      * [Hot Module Replacement](https://github.com/aspnet/JavaScriptServices/tree/dev/src/Microsoft.AspNetCore.SpaServices#webpack-hot-module-replacement)
 * 前端
   1. [TypeScript](https://www.tslang.cn/docs/home.html)
   2. [Webpack](http://www.jianshu.com/p/42e11515c10f)
-  3. [Vue.js](https://cn.vuejs.org/v2/guide/)(暂时是由模板自动生成的示例)
+  3. [Vue.js](https://cn.vuejs.org/v2/guide/)
 * 文档
   1. [Swagger](https://docs.microsoft.com/en-us/aspnet/core/tutorials/web-api-help-pages-using-swagger)
   2. [MDWiki](http://dynalon.github.io/mdwiki/#!quickstart.md)

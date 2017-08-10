@@ -6,7 +6,7 @@
 2. 下载mediawiki,尝试搭建wiki文档
 
 
-## 7.17
+## 7.17-7.18
 
 * 后端：编写一个WebApi, 提供Http接口给前端使用
 
@@ -41,7 +41,6 @@
 
 * web api 生成文档？
 
-## 7.18
 
 * Visual Studio插件推荐：
 
@@ -79,7 +78,7 @@
 
     ​
 
-## 7.20
+## 7.20-7.21
 
 * Azure 自动部署(git)步骤:
   1. 在Azure Portal找到自己已经部署好的App, 找到设置栏
@@ -92,14 +91,13 @@
 * GitHub教育用户申请……
 
 
-
-## 7.21
-
 * Bundle:资源压缩
+
 * 使用.UseWebRoot()手动更改wwwroot路径
+
 * 信息量太大……但又感觉说不清楚看了什么，等待后面消化。
 
-
+  ​
 
 
 ## 7.22
@@ -196,19 +194,12 @@
 
   ​
 
-## 7.23
+## 7.23-7.24
 
 * 附加到进程调试：Ctrl+Shift+R
-
 * 解决了部署后程序不能正确运行，返回5xx错误的问题：[一次错误的解决记录](../../index.html#!pages/docs/一次错误的解决记录.md)
-
-  ​
-
-## 7.24
-
 * Swagger 开启xml文档格式
 * 为了能让run_server.bat运行后，应用启动成功时加载浏览器，在主程序Main函数里加了参数，如果开发环境为Debug且加了参数，则会自动打开默认浏览器
-
 
 ## 8.7-8.8
 
@@ -243,7 +234,7 @@
 * 数据库结构设计：
 
   | 表    | 字段                                       | get属性设计  |
-  | :--- | ---------------------------------------- | -------- |
+  | ---- | ---------------------------------------- | -------- |
   | 学生   | 学号（主键）、名字、一卡通号、对应辅导员ID（外键）、[剩余时间?]、题目随机池ID、状态二进制串 | 获取题号数组   |
   | 辅导员  | ID、名字、院系                                 | 获取一条概况记录 |
   | 题目   | ID、题目、选项、答案、[分值?]                        | 规范格式     |
@@ -298,3 +289,112 @@
   * 查看各院系概况：按照API设计构思2，遍历各院系，列出数据表格。
   * ……
 
+  ​
+
+
+## 8.9
+
+* 解决恼人的Migrations路径问题：
+
+  我们项目的Content Root在Main函数中被设置，并且在DEBUG和RELEASE版下各不相同。然而，由于Main函数是用来运行服务器的，而一些特殊的程序（如Migrations）并不需要运行服务器，因此其跳过了Main函数，而是从dll中直接读取Startup.cs工作，这就造成了Content Root的紊乱。
+
+  这个问题暂时没有找到较好的解决方法……最后采取了这么一个措施：在Main函数所在的Program类里添加了一个静态bool变量FromMain，用来表示程序是否执行了Main函数：
+
+  ```
+  	class Program
+  	{
+  		public static bool FromMain { get; set; } = false;
+          public static void Main(string[] args)
+          {
+   			// other codes
+              FromMain = true;
+              host.Run();
+          }
+      }
+  ```
+
+  根据这个变量来重新规定Content Root:
+
+  ```
+              if(!Program.FromMain && env.IsDevelopment())
+              {
+                  env.ContentRootPath = Path.Combine(env.ContentRootPath, "..");
+                  env.WebRootPath = Path.Combine(env.ContentRootPath, "wwwroot");
+              }
+  ```
+
+  问题暂时得以解决了。
+
+* 数据库层次设计：
+
+  模型简单如下图所示
+
+  ![RepositoryPattern](../uploads/images/progress_yzh/RepositoryPattern.png)
+
+  即：
+
+  > -- 被控制器正式使用
+  >
+  > ↑  Unit of work（工作单元）
+  >
+  > ↑  各种Repositories组合
+  >
+  > ↑  Entity Framework + Model.Entity
+  >
+  > ↑  数据库
+
+  其中：
+
+  * Model.Entity：自己写的与数据库一张表对应的类，类的成员与表字段一一对应。
+
+  * Entity Framework：使用Entity构造了一个模拟的数据库环境，有着每个Entity构成的数组。
+
+  * Repository：仓库，是对Entities数组的一层封装。主要是在里面添加各种自定义方法，用于封装各种业务逻辑。
+
+    如：对于Student仓库，可以添加“求平均分”，“求最高分”，“按院系求平均分”等各种方法。
+
+  * Unit of work：工作单元，各种Repository的集合，是更上层的业务逻辑代码所使用的最终成品。如有必要，可以直接取出Entity Framework的数据库环境使用。
+
+* 为UnitOfWork类添加了依赖注入，使用Scoped模式（不能用单例，因为是线程不安全的）：
+
+  ```
+  services.AddScoped<UnitOfWork>();
+  ```
+
+* 数据模型（Entity）设计说明：
+
+* BUG FIX：Webpack不会自动更新的问题
+
+  其原因是用run_server.bat运行程序时，程序运行环境是Production，而非Development造成的。这连带着也出现了一些目录错误问题。
+
+  解决方法：在bat中加入一个临时环境变量设置：`set ASPNETCORE_ENVIRONMENT=Development`
+
+* 最新Commit内容概述：
+
+  1. `ADDED:`数据库->表设计见Devlog
+
+  2. `ADDED:`后端DAL（数据访问层）->以数据仓库与工作单元封装
+
+  3. `ADDED:`后端MVC - Models，包含数据库模型与前端交互模型
+
+  4. `ADDED:`后端控制器API：仅仅只是写好一些接口
+
+  5. `MODIFIED:`restore_packages.bat重命名为build.bat，除了重新获取包依赖，它现在还会完成生成工作。
+
+  6. `MODIFIED:`Client/run_server.bat 使用dotnet ef命令重新生成，这样可以保证数据库是最新的。
+
+  7. `MODIFIED:`readme.md/index.md/devlog
+
+  8. `REMOVED:`package-lock.json
+
+  9. `REMOVED:`移去wwwroot/dist文件夹（because having tasks that create the project's static files in wwwroot -- by .gitignore)它现在由在本地运行一次build.bat或webpack_build.bat来生成。
+
+  10. `FIX BUG:`Client/webpack.config.vendor.js的路径配置有误（致使webpack生成时将一部分wwwroot/dist/文件生成在Client文件夹下了）
+
+  11. `FIX BUG:`用run_server.bat运行服务器时，环境没有设为Development。在bat中设置了临时环境变量解决问题。现在Webpack MiddleWare可以正常使用了。
+
+  12. `FIX BUG:`修正后端工作路径的若干BUG。
+
+      ​
+
+      ​

@@ -1,11 +1,10 @@
 @echo off
-cd ../
+cd ../HistoryContest.Server
 echo Building Server Application...
-echo.
-msbuild ./HistoryContest.sln /property:Configuration=Debug /verbosity:minimal
+:: msbuild ../HistoryContest.sln /property:Configuration=Debug /verbosity:minimal
+dotnet ef database update
 echo.
 echo Running Server Application...
-echo.
-cd ./HistoryContest.Server/
+set ASPNETCORE_ENVIRONMENT=Development
 dotnet run --configuration Debug -- /runbrowser
 pause
