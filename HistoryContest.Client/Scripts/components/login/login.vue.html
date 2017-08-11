@@ -6,13 +6,11 @@
         <div class="container">   
             <div class = "row">
                 <div class="col-md-6 col-md-offset-3">
-                  <validator name ="validation">
                     <form class="form-horizontal" data-toggle="validator" method="POST" action="xxxx.asp">
                         <span class="heading">校史校情知识竞赛</span>
                         <div class="form-group username-field">
                                 <input type="text"
                                        id = "username"
-                                       v-validate:username="{minlength:6,maxlength:12}" 
                                        class="form-control" 
                                        pattern="^[0-9]{8}$" 
                                        required 
@@ -21,9 +19,6 @@
                                        name="user"
                                        data-toggle="validator" 
                                        />
-                                       <div>
-                                            {{$myForm |json}}
-                                        </div>
                                 <span class="glyphicon glyphicon-user"></span>
                                 
                         </div>
@@ -41,7 +36,6 @@
                             <button type="submit" class="btn btn-default">登录</button>
                         </div>
                     </form>
-                  </validator>
                     
                 </div>
                 

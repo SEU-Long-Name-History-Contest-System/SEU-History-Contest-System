@@ -9,6 +9,7 @@ Vue.use(Validator);
         validator: require('./validator.js')
     }
 })*/
+//validator malfunctioning at present.
 
 
 export default class AppComponent extends Vue {

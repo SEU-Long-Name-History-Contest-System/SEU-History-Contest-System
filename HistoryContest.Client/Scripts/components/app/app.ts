@@ -13,13 +13,16 @@ var backgrounds = [
       "/dist/Images/background4.jpg",
       "/dist/Images/background5.jpg",
       "/dist/Images/background6.jpg",
-      "/dist/Images/background7.jpg"
+      "/dist/Images/background7.jpg",
+      "/dist/Images/background8.jpg"
+
     ];
   function changeBackground()
   {
     bgCounter = (bgCounter+1) % backgrounds.length;
-    $('.backgrounds').css('background-image','url('+backgrounds[bgCounter]+')');
-    setTimeout(changeBackground, 4050);
+
+    $('.bg').fadeOut(1000,function(){$(this).attr('src',backgrounds[bgCounter])}).fadeIn(1000);
+    setTimeout(changeBackground, 10000);
   }
   changeBackground();
 });

@@ -1,13 +1,20 @@
 
 /* Keep the nav menu independent of scrolling and on top of other items */
 .backgrounds {
-    background-image:url(../../../Images/background2.jpg);
+   /* background-image:url(../../../Images/background2.jpg);*/
     position: fixed;
     background-position: center;
     top: 0; 
     left: 0;
 	right:0;
 	bottom:0;
+}
+.bg{
+	position:absolute;
+	width:100%;
+	z-index:-1;
+	opacity:1;
+	vertical-align: middle;
 }
 
 h1{
