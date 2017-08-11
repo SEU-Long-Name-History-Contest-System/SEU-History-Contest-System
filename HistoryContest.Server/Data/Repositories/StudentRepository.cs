@@ -18,30 +18,31 @@ namespace HistoryContest.Server.Data.Repositories
 
         IEnumerable<Student> GetByDepartment(int departmentID)
         {
-            return new List<Student>();
+            var Students=
+            return new List<Student>(Students);
         }
 
-        double AverageScore()
+        public double AverageScore()
         {
             return 60.0;
         }
 
-        double HighestScore()
+        public double HighestScore()
         {
             return 90.0;
         }
 
-        int ScoreHigherThan(double bandScore)
+        public int ScoreHigherThan(double bandScore)
         {
             return 10;
         }
-            
-        double AverageScoreByDepartment(int departmentID)
+
+        public double AverageScoreByDepartment(int departmentID)
         {
             return 1.0;
         }
 
-        double HighestScoreByDepartment(int departmentID)
+        public double HighestScoreByDepartment(int departmentID)
         {
             return 1.0;
         }

@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using HistoryContest.Server.Data.Repositories;
+using System;
 using System.Threading.Tasks;
-using HistoryContest.Server.Data.Repositories;
 
 namespace HistoryContest.Server.Data
 {

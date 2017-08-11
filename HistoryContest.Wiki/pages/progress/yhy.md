@@ -5,7 +5,6 @@
 * 了解HTML/CSS以及jQuery,JS的基本语法与运用
 
 
-
 ***
 
 ## 7.21-25
@@ -14,7 +13,7 @@
 * 项目结构初步学习，暂时还未推进进度
 
 
-
+******
 
 ## 8.4-8
 
@@ -80,7 +79,6 @@
 
    * 关于如何处理Post请求
 
-      
 
 6. *[Create a Web API](https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-web-api-mac)
 
@@ -111,3 +109,6 @@
 yzh关于后端MVC模式的分析更为清晰
 
 暂时列了一下进度和计划，差不多要加快速度了
+
+******
+

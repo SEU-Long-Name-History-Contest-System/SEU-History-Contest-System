@@ -11,6 +11,7 @@ namespace HistoryContest.Server.Models.Entities
     public class Student : IEntityBase
     {
         [DatabaseGenerated(DatabaseGeneratedOption.None)] // ID为学生学号，而不是由数据库自动生成
+        [Key]
         public int ID { get; set; }
         public string Name { get; set; }
         public int CardID { get; set; }

@@ -4,12 +4,20 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using HistoryContest.Server.Models.ViewModels;
+using HistoryContest.Server.Data;
 
 namespace HistoryContest.Server.Controllers.APIs
 {
-    [Route("api/[controller]")]
+    [Route("api/Question")]
     public class QuestionController : Controller
     {
+        private readonly UnitOfWork _unitofwork;
+
+        public QuestionController(UnitOfWork unitofwork)
+        {
+            _unitofwork = unitofwork;
+        }
+
         [HttpGet]
         public IEnumerable<string> GetQuestionSet()
         {

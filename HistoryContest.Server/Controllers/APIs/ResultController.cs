@@ -4,14 +4,21 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using HistoryContest.Server.Data;
 
 namespace HistoryContest.Server.Controllers.APIs
 {
     [Produces("application/json")]
-    [Route("api/[controller]")]
+    [Route("api/Result")]
     public class ResultController : Controller
     {
-        
+        private readonly UnitOfWork _unitofwork;
+
+        public ResultController(UnitOfWork unitofwork)
+        {
+            _unitofwork = unitofwork;
+        }
+
         [HttpGet]
         public IActionResult GetResult()
         {
