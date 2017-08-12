@@ -4,12 +4,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using HistoryContest.Server.Models.Entities;
 using HistoryContest.Server.Data;
 
 namespace HistoryContest.Server.Controllers.APIs
 {
     [Produces("application/json")]
-    [Route("api/Counselor")]
+    [Route("api/[controller]")]
     public class CounselorController : Controller
     {
         private readonly UnitOfWork _unitofwork;
@@ -28,10 +29,10 @@ namespace HistoryContest.Server.Controllers.APIs
         }
 
         // GET: api/Counselor/5
-        [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
+        [HttpGet("{id}", Name = "Get"),ActionName("scoreSummary")]
+        public string Get(Department departmentid)
         {
-
+            //
             return "value";
         }
         

@@ -33,8 +33,16 @@ namespace HistoryContest.Server.Controllers.APIs
         
         // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public IActionResult Delete(int id)
         {
+            var Students = _unitofwork.context.Students.FirstOrDefault(t => t.ID==id);
+            if (Students == null)
+            {
+                return NotFound();
+            }
+            _unitofwork.context.Students.Remove(Students);
+            _unitofwork.context.SaveChanges();
+            return new NoContentResult();
         }
     }
 }

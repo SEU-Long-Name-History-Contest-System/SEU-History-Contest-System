@@ -20,29 +20,29 @@ namespace HistoryContest.Server.Data.Repositories
         {
             var Students = from m in _context.Students
                            select m;
-            Students = Students.Where(s => s.Counselor.Department==departmentID);
+            Students = Students.Where(m => m.Counselor.Department==departmentID);
             return new List<Student>(Students);
         }
 
         public double AverageScore()
         {
-            var Students = _context.Students;
-            int total = 0,sum = 0;
+            var Students = _context.Students.Where(m => m.IsTested);
+            int total = 0, sum = 0;
             foreach(Student m in Students)
-            if(m.IsTested){
-                    total += m.Score;
+            {
                     sum++;
+                    total += m.Score;
             }
             double average = (double)total / sum;
             return average;
         }
 
-        public int HighestScore()
+        public double HighestScore()
         {
-            var Students = _context.Students;
+            var Students = _context.Students.Where(m => m.IsTested);
             int maximum = 0;
             foreach (Student m in Students)
-                if (m.IsTested && m.Score>maximum)
+                if (maximum<m.Score)
                 {
                     maximum = m.Score;
                 }
@@ -51,41 +51,40 @@ namespace HistoryContest.Server.Data.Repositories
 
         public int ScoreHigherThan(double bandScore)
         {
-            var Students = _context.Students;
-            int num = Students.Count(m => (m.Score>=bandScore&&m.IsTested));
+            var Students = _context.Students.Where(m => m.IsTested);
+            int num = Students.Count(m => m.Score>=bandScore);
             return num;
         }
 
         public double AverageScoreByDepartment(Department departmentID)
         {
-            var Students = _context.Students.Where(m => m.Counselor.Department==departmentID);
+            var Students = _context.Students.Where(m => (m.IsTested&&m.Counselor.Department==departmentID));
             int total = 0, sum = 0;
             foreach (Student m in Students)
-                if (m.IsTested)
-                {
-                    total += m.Score;
-                    sum++;
-                }
+            {
+                sum++;
+                total += m.Score;
+            }
             double average = (double)total / sum;
             return average;
         }
 
         public double HighestScoreByDepartment(Department departmentID)
         {
-            var Students = _context.Students.Where(m => m.Counselor.Department == departmentID);
+            var Students = _context.Students.Where(m => (m.IsTested && m.Counselor.Department == departmentID));
             int maximum = 0;
             foreach (Student m in Students)
-                if (m.IsTested && m.Score > maximum)
+                if (maximum < m.Score)
                 {
                     maximum = m.Score;
                 }
             return maximum;
         }
 
-        int ScoreHigherThanByDepartment(int bandScore, Department departmentID)
+        int ScoreHigherThanByDepartment(double bandScore, Department departmentID)
         {
-            var Students = _context.Students.Where(m => m.Counselor.Department == departmentID);
-            int num = Students.Count(m => (m.Score >= bandScore && m.IsTested));
+            var Students = _context.Students.Where(m => (m.IsTested && m.Counselor.Department == departmentID));
+            int num = Students.Count(m => m.Score >= bandScore);
             return num;
         }
     }
