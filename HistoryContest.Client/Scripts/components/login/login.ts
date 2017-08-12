@@ -3,6 +3,7 @@ import { Component } from 'vue-property-decorator';
 import $ from 'jquery';
 import Validator from 'vue-validator';
 Vue.use(Validator);
+//require('./validator.js');
 /*
 @Component({
     components: {
