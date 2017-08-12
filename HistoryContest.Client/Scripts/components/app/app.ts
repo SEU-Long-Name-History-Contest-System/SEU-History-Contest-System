@@ -41,7 +41,7 @@ var backgrounds = [
 
 @Component({
     components: {
-        MenuComponent: require('../navmenu/navmenu.vue.html'),
+       // MenuComponent: require('../navmenu/navmenu.vue.html'),
         LoginComponent: require('../login/login.vue.html')
     }
 })
