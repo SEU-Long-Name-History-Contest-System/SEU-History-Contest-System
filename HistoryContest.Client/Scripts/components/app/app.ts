@@ -7,7 +7,9 @@ import $ from 'jquery';
 @Component({
     components: {
        // MenuComponent: require('../navmenu/navmenu.vue.html'),
-        LoginComponent: require('../login/login.vue.html')
+        LoginComponent: require('../login/login.vue.html'),
+        AnsComponent: require('../ans/ans.vue.html')
+
     }
 })
 

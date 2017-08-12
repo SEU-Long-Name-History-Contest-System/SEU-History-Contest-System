@@ -1,0 +1,121 @@
+<template>
+	<div>
+		<!--Header-->
+		<div id = "header">
+				<div class = "header_1">校史校情知识竞赛</div>
+				<div class="header_2 time"></div>														
+		</div>
+						<!--Footer-->
+		<div id="footer" style="display:none">
+			<div id="answerCard" >
+				<a href="#q1" id="question1" class="answered">1</a>
+			</div>				
+		</div>		
+		<!-- Page Wrapper -->
+		<div id="page-wrapper">							
+			<!-- Wrapper -->
+			<div id="wrapper">					
+				<!-- 欢迎页 -->						
+				<section class="panel banner ">
+					<div class="image filtered span-1-75" data-position="25% 25%">
+						<img src="images/pic01.jpg" alt="" />
+					</div>
+					<div class="content color4 span-3-75">
+						<h1 class="major">你好，欢迎来到<br />
+						校史校情知识竞赛系统</h1>
+						<p>本次竞赛共有 <strong><span  id="multiple-sum"></span>道选择题，<span id="TF-sum"></span>道判断题，限时30分钟。</strong></p>
+						
+						<ul class="actions "> 
+							<li ><a href="#q1" class="button  color1 circle icon fa-angle-right" id="start">Next</a></li>
+						</ul>
+						
+					</div>										
+				</section>
+				<section class="panel spotlight large right" >								
+					<div class="image  tinted" data-position="top left">
+						<img src="images/banner.jpg" alt="" />
+					</div>
+				</section><!--欢迎页-->
+				<!--问题-->
+				<div id="quiz-container" class="panel">					
+				</div>
+				<!--提交-->
+				<section class="panel spotlight large right" >								
+					<div class="image  tinted" data-position="top left">
+						<img src="images/banner.jpg" alt="" />
+					</div>
+				</section>
+				<section class="panel" id="submission">						
+					<div class="gallery">
+						<div class="group span-3">
+							<a class="image filtered span-3" data-position="bottom"><img src="images/background3.jpg" alt="" /></a>
+							<a  class="image filtered span-1-5" data-position="center"><img src="images/background4.jpg" alt="" /></a>
+							<a  class="image filtered span-1-5" data-position="bottom"><img src="images/background5.jpg" alt="" /></a>
+						</div>
+						</div>
+					<div class="intro color4">
+						<h2 class="major">感谢！</h2>
+						<input type="submit" value="Submit" onclick="submit()" class="special color4" />
+					</div>
+					<div class="gallery">
+						<div class="group span-3">
+							<a class="image filtered span-3" data-position="bottom"><img src="images/background0.jpg" alt="" /></a>
+							<a  class="image filtered span-1-5" data-position="center"><img src="images/background1.jpg" alt="" /></a>
+							<a  class="image filtered span-1-5" data-position="bottom"><img src="images/background2.jpg" alt="" /></a>
+						</div>							
+					</div>
+				</section><!--提交-->																																																											
+			</div>
+		</div><!--End of Page Wrapper-->
+	</div>
+</template>
+<style src = "./ans.css"></style>
+
+<!--
+<script type="text/javascript">
+	var answerQues=[];//name,answer(id)
+	function saveAns(clickID){
+		var ans = clickID.value;//获取this的id，即事件拥有者的id，即选项的id（item0，1，2，3...）
+		var id=clickID.id;
+		var name=$("#"+id).prop('name');
+		var testing;
+		
+		for(var i=0;i<answerQues.length;i++){//这个循环用来覆盖保存答案
+		if( answerQues[i].name==name&&answerQues[i].answer!=ans){
+					
+			answerQues[i].answer =ans;
+				testing=JSON.stringify(answerQues);
+				console.log(testing);
+			return;
+		
+		}
+			else if(answerQues[i].name==name&&answerQues[i].answer==ans)
+				return;			
+		}
+			var check ={};						
+			check.name=name;
+			check.answer=ans;
+			answerQues.push(check);//用push方法传入数组
+			
+			testing=JSON.stringify(answerQues);
+			console.log(testing);
+			$("#"+name).addClass("answered");
+		
+			console.log(parseInt(name[name.length-1]));
+			console.log(name[name.length-1]);
+			console.log(name.length);
+			console.log(name);
+			setTimeout(function(){
+				var next=parseInt(name.substr(8))+1;
+				name='question'+next;
+				$("#"+name).click();
+			
+			},300);
+	}
+	function submit(){
+		console.log(answerQues.length);
+		if(answerQues.length!=30)
+			alert("您还有未作答题目哦！");
+	}
+</script>
+-->
