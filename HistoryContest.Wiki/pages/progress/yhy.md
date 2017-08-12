@@ -112,3 +112,33 @@ yzh关于后端MVC模式的分析更为清晰
 
 ******
 
+## 8.13-14
+
+* 对API小幅修改，读懂API写法，有很多知识细节还不清楚
+
+* 补文档：
+
+  *  MVC：
+    1. 模型绑定(至自定义验证)
+
+    2. 控制器
+
+    3. 添加搜索
+
+       IQueryable与IList的区别https://zhidao.baidu.com/question/276062888.html
+
+       ToListAsync()与await一起使用，用于提升性能
+
+    4.  添加新字段
+
+    5.  添加验证
+
+       RedirectToAction("Index")调用其他方法
+
+    6. 检查细节和删除方法
+
+       SingleOrDefaultAsync可以提升搜索的性能-异步
+
+
+  *  部分API及Repository的实现
+     * StudentRepository.cs

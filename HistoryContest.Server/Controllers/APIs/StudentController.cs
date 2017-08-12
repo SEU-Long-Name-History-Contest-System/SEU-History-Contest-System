@@ -9,7 +9,7 @@ using HistoryContest.Server.Data;
 namespace HistoryContest.Server.Controllers.APIs
 {
     [Produces("application/json")]
-    [Route("api/Student")]
+    [Route("api/[controller]")]
     public class StudentController : Controller
     {
         private readonly UnitOfWork _unitofwork;

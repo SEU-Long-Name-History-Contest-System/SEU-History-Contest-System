@@ -16,6 +16,7 @@ namespace HistoryContest.Server.Models.Entities
         public string Name { get; set; }
         public int CardID { get; set; }
         public Int64? State { get; set; }
+        public int Score { get; set; } = 0;
         //public TimeSpan TimeLeft { get; set; }
 
         // Foreign Keys
