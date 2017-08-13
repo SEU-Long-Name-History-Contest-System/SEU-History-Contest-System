@@ -49,9 +49,16 @@ namespace HistoryContest.Server.Controllers.APIs
         }
 
         [HttpDelete("{id}")]
-        public void DeleteSeed(int id)
+        public IActionResult DeleteSeed(int id)
         {
-
+            var questionseeds = _unitofwork.context.QuestionSeeds.FirstOrDefault(t => t.ID== id);
+            if (questionseeds == null)
+            {
+                return NotFound();
+            }
+            _unitofwork.context.QuestionSeeds.Remove(questionseeds);
+            _unitofwork.context.SaveChanges();
+            return new NoContentResult();
         }
     }
 }

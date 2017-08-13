@@ -152,3 +152,14 @@
   StudentController/Delete/id 删除相应学号学生
 
   ?CounselorController/Get类型不明
+
+## 8.13
+
+* 部分API方法
+
+  StudentController/Delete/id
+
+  CounselorController/Delete/id
+
+* ​
+
