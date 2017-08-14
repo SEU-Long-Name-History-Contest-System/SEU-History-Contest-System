@@ -1,5 +1,5 @@
-<template lang ="html">
-	<div>
+<template>
+	<div id = "ans">
 		<div id = "header">
 				<div class = "header_1">校史校情知识竞赛</div>
 				<div class="header_2 time"></div>														
@@ -7,15 +7,16 @@
 						<!--Footer-->
 		<div id="footer" style="display:none">
 			<div id="answerCard" >
-				<a href="#q1" id="question1" class="answered">1</a>
+				<a href="#" id="question1" class="answered">1</a>
 			</div>				
 		</div>		
 		<!-- Page Wrapper -->
 		<div id="page-wrapper">							
 			<!-- Wrapper -->
 			<div id="wrapper">					
-				<!-- 欢迎页 -->						
-				<section class="panel banner ">
+				<!-- 欢迎页 -->	
+							
+				<section id = "sec1" class="panel banner ">
 					<div class="image filtered span-1-75" data-position="25% 25%">
 						<img src="../../../Images/pic01.jpg" alt="" />
 					</div>
@@ -25,18 +26,18 @@
 						<p>本次竞赛共有 <strong><span  id="multiple-sum"></span>道选择题，<span id="TF-sum"></span>道判断题，限时30分钟。</strong></p>
 						
 						<ul class="actions "> 
-							<li ><a href="#q1" class="button  color1 circle icon fa-angle-right" id="start">Next</a></li>
+							<li ><a href="#" class="button color1 circle icon fa-angle-right" id="start">Next</a></li>
 						</ul>
 						
 					</div>										
 				</section>
-				<section class="panel spotlight large right" >								
+				<section id = "sec2" class="panel spotlight large right" >								
 					<div class="image  tinted" data-position="top left">
 						<img src="../../../Images/banner.jpg" alt="" />
 					</div>
 				</section><!--欢迎页-->
 				<!--问题-->
-				<div id="quiz-container" class="panel">					
+				<div id="quiz-container" class="panel">
 				</div>
 				<!--提交-->
 				<section class="panel spotlight large right" >								
