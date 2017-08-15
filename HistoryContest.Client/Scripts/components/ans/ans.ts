@@ -2,12 +2,10 @@ import Vue from 'vue';
 import { Component } from 'vue-property-decorator';
 import $ from 'jquery';
 require('../../../node_modules/font-awesome/css/font-awesome.min.css');
-var skel = require('./skel.min.js');
 var set = require('./questions.js').set;
 var answerCard = require('./questions.js').answerCard;
 import saveAns from './ans.js';
 import submit from'./ans.js';
-//import skel from "./skel.min.js";
 
 require('../../../Images/banner.jpg');
 require('../../../Images/bg.jpg');
@@ -25,22 +23,53 @@ require('../../../Images/background8.jpg');
 
 
 $(function(){
-	
+var currentPage = 0;
+
 	$(document).on("click",".fa-angle-right",function(e){
 		var v_id = $(e.target).attr('id'); 
 		if(v_id == "start"){
 			$('#wrapper').animate({
 				left:"-=115rem"
-			});	
+			},500);	
+			currentPage = 1;
 		}else{
 			$('#wrapper').animate({
 				left:"-=120rem"
-			});							
+			},500);							
+			currentPage++;			
 		}
-		
+		console.log(currentPage);
+	});
+	$(document).on("click",".questionId",function(c){
+		var tgt = $(c.target).attr('id');
+		if(tgt.length == 9){
+			var tgtId = parseInt(tgt[8]);
+		}else{
+			var tgtId = parseInt(tgt[8])*10+parseInt(tgt[9]);			
+		}
+		console.log(tgtId);
 
+		if (tgtId< currentPage){
+			var M = currentPage - tgtId;
+			for(var i = 0; i<M;i++){
+				$('#wrapper').animate({
+					left:"+=120rem"
+				},500/(currentPage-tgtId));
+				currentPage--;	
+			}
+		}else if(tgtId> currentPage){
+			var M = tgtId - currentPage;
+			for(var i = 0; i<M;i++){
+				$('#wrapper').animate({
+					left:"-=120rem"
+				},500/(tgtId-currentPage));
+				currentPage++;	
+			}
+		}
+		console.log(currentPage);
 
 	});
+
 /*
 	$("a").click(function(){
 		alert("clicked!");

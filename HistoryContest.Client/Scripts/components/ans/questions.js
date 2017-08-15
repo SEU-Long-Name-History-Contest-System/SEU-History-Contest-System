@@ -79,7 +79,7 @@ exports.set = function(){
         }
         content += '</div>';
         if(questionsIteratorIndex+1!= init.questions.length+init.TFs.length){//如果是最后一题，那么不需要有下一页按钮
-            content += '<div class="intro  joined"><ul class="actions"><li><a href="#toQ'+(questionsIteratorIndex + 2)+'" class="button  color1 circle icon fa-angle-right">Next</a></li></ul></div></div></section>'; 
+            content += '<div class="intro  joined"><ul class="actions"><li><a id="#toQ'+(questionsIteratorIndex + 2)+'" class="button  color1 circle icon fa-angle-right">Next</a></li></ul></div></div></section>'; 
                
         content+='<section class="panel spotlight large right" ><div class="image  tinted" data-position="top left"><img src="/dist/Images/background'+(questionsIteratorIndex %9)+'.jpg" alt="" /></div></section>'
         }
