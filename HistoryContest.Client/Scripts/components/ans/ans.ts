@@ -39,12 +39,12 @@ var currentPage = 0;
 		if(v_id == "start"){
 			$('#wrapper').animate({
 				left:"-=115rem"
-			},500);	
+			},300);	
 			currentPage = 1;
 		}else{
 			$('#wrapper').animate({
 				left:"-=120rem"
-			},500);							
+			},300);							
 			currentPage++;			
 		}
 	});
@@ -61,7 +61,7 @@ var currentPage = 0;
 			for(var i = 0; i<M;i++){
 				$('#wrapper').animate({
 					left:"+=120rem"
-				},500/(currentPage-tgtId));
+				},300/(currentPage-tgtId));
 				currentPage--;	
 			}
 		}else if(tgtId> currentPage){
@@ -69,7 +69,7 @@ var currentPage = 0;
 			for(var i = 0; i<M;i++){
 				$('#wrapper').animate({
 					left:"-=120rem"
-				},500/(tgtId-currentPage));
+				},300/(tgtId-currentPage));
 				currentPage++;	
 			}
 		}

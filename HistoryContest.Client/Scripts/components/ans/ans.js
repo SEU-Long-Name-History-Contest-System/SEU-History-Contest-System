@@ -44,4 +44,5 @@ var $ = require("../../../node_modules/jquery/dist/jquery.min.js");
 		console.log(answerQues.length);
 		if(answerQues.length!=30)
 			alert("您还有未作答题目哦！");
+		else alert("已提交！")
 	}
