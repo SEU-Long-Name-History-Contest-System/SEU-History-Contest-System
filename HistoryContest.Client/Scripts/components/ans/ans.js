@@ -1,7 +1,11 @@
+var $ = require("../../../node_modules/jquery/dist/jquery.min.js");
+	
 	var answerQues=[];//name,answer(id)
 	exports.saveAns=function(clickID){
+		
 		var ans = clickID.value;//获取this的id，即事件拥有者的id，即选项的id（item0，1，2，3...）
-		var id=clickID.id;
+		var id=clickID;
+		alert(id);
 		var name=$("#"+id).prop('name');
 		var testing;
 		

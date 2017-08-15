@@ -52,7 +52,7 @@ exports.set = function(){
             content += '<div class="field quarter"><input type="radio"'
             +' id="choice'+(questionsIteratorIndex + 1)+(answersIteratorIndex+1)//选项id，该id名称应与后端协商确定，与提交表单有关
             +'" value="'+answersIteratorIndex
-            +'" onclick="saveAns(this)"'
+  //          +'" onclick="saveAns(this)"'
             +'" name="question'+(questionsIteratorIndex + 1)+'" class="color2" />'//单选radio的name，同上
             +'<label for="choice'+(questionsIteratorIndex + 1)+(answersIteratorIndex+1)+'">'//同上 关于for属性可以参见参考文档
             +init.questions[questionsIteratorIndex].answers[answersIteratorIndex] +'</label></div><br>';//选项内容
@@ -72,7 +72,7 @@ exports.set = function(){
         for (answersIteratorIndex = 0; answersIteratorIndex < 2; answersIteratorIndex++) {//两个选项
             content += '<div class="field quarter"><input type="radio" id="choice'+(questionsIteratorIndex + 1)+(answersIteratorIndex+1)
             +'" value="'+answersIteratorIndex
-            +'" onclick="saveAns(this)"'
+ //           +'" onclick="saveAns(this)"'
             +'" name="question'+(questionsIteratorIndex + 1)+'" class="color2" />'
             +'<label for="choice'+(questionsIteratorIndex + 1)+(answersIteratorIndex+1)+'">'
             +(answersIteratorIndex==0?'正确':'错误') +'</label></div><br>';//判断题，选项为正确或错误
