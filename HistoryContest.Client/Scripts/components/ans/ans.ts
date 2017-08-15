@@ -2,8 +2,13 @@ import Vue from 'vue';
 import { Component } from 'vue-property-decorator';
 import $ from 'jquery';
 require('../../../node_modules/font-awesome/css/font-awesome.min.css');
+var skel = require('./skel.min.js');
 var set = require('./questions.js').set;
-var answercard = require('./questions.js').answercard;
+var answerCard = require('./questions.js').answerCard;
+import saveAns from './ans.js';
+import submit from'./ans.js';
+//import skel from "./skel.min.js";
+
 require('../../../Images/banner.jpg');
 require('../../../Images/bg.jpg');
 require('../../../Images/overlay.png');
@@ -20,23 +25,31 @@ require('../../../Images/background8.jpg');
 
 
 $(function(){
-    set();//初始化
-    answercard();
-	$('#start').click(function(){
-		//$('#sec1').css("display","none");
-		$('#sec1').fadeOut(1000);
-		$('#sec2').fadeOut(1000);
-		$('#quiz-container').fadeOut(1000);
-		$('#banner').fadeOut(1000);
-		$('#submission').fadeOut(1000);
+	
+	$(document).on("click",".fa-angle-right",function(e){
+		var v_id = $(e.target).attr('id'); 
+		if(v_id == "start"){
+			$('#wrapper').animate({
+				left:"-=115rem"
+			});	
+		}else{
+			$('#wrapper').animate({
+				left:"-=120rem"
+			});							
+		}
+		
 
-		setTimeout(function(){
-			$('#quiz-container').fadeIn(1000);
-			$('#q21').fadeIn(1000);
-		},1000);
-		/////////////////
 
 	});
+/*
+	$("a").click(function(){
+		alert("clicked!");
+		$('#wrapper').animate({
+			left:"-=1858.3px"
+		});
+
+	});*/
+	/*
 	$('#toQ2').click(function(){
 		$('#quiz-container').fadeOut(1000);
 		$('#q1').fadeOut(1000);
@@ -239,7 +252,55 @@ $(function(){
 			$('#submission').fadeIn(1000);
 		},1000);
 	});
+	*/
+
+	var mm = 30;//分
+	var ss = 0;//秒
+	var timeState = false;//时间状态 默认为true 开启时间
+
+	/*实现计时器*/
 	
+	var time= setInterval(function () {
+		if (timeState) {
+			if(mm==0&&ss==1){
+				ss--;
+				alert("时间到！");
+				$(".time").hide();
+				
+			}
+			else{
+				var str = "";
+				if (ss-- == 0) {
+					--mm;
+					ss = 59;
+				}
+				
+				
+				str += mm < 10 ? "0" + mm : mm;
+				str += ":";
+				str += ss < 10 ? "0" + ss : ss;
+				$(".time").text(str);
+			}
+		
+		} 
+		else {
+			$(".time").text(' ');
+		}
+	}, 1000);
+
+	var answerQues=[];//name,answer(id)
+    set();//初始化
+    answerCard();
+$(document).ready(function(){
+
+    $("#start").click(function () {
+		 $("#footer").show();
+        timeState = true;
+	});
+
+
+});
+		
 });
 
 new Vue({
@@ -250,9 +311,4 @@ new Vue({
 
 export default{
 //export default class AppComponent extends Vue {
-    	data(){
-			return{
-				msg:'hahahhahhhhhhh!'
-			}
-		}
 }

@@ -2186,7 +2186,7 @@
 
 		.panel > * {
 			position: relative;
-			min-width: 10rem;
+			width: 55rem;
 		}
 
 			.panel > *.color0 {
@@ -3746,4 +3746,1324 @@
 	background: rgb(240,130,0);
 	border:1px solid rgb(240,130,0);
 }
+
+/*submission panel*/
+	.spanel {
+		background-color:transparent;
+		display: -moz-flex;
+		display: -webkit-flex;
+		display: -ms-flex;
+		display: flex;
+		-moz-flex-grow: 0;
+		-webkit-flex-grow: 0;
+		-ms-flex-grow: 0;
+		flex-grow: 0;
+		-moz-flex-shrink: 0;
+		-webkit-flex-shrink: 0;
+		-ms-flex-shrink: 0;
+		flex-shrink: 0;
+		-moz-justify-content: center;
+		-webkit-justify-content: center;
+		-ms-justify-content: center;
+		justify-content: center;
+		-moz-align-items: stretch;
+		-webkit-align-items: stretch;
+		-ms-align-items: stretch;
+		align-items: stretch;
+		height: 100%;
+		overflow-x: hidden;
+		overflow-y: auto;
+		border: 0px;
+	}
+
+
+		.spanel > * {
+			position: relative;
+			min-width:10rem;
+		}
+
+			.spanel > *.color0 {
+				background-image: url("/dist/Images/overlay.png"), linear-gradient(45deg, #726193 20%, #e37b7c 60%, #ffe4b4);
+				background-size: 128px 128px, auto;
+			}
+
+			.spanel > *.color1 {
+				background-image: url("/dist/Images/overlay.png"), linear-gradient(45deg, rgba(114, 97, 147, 0.25) 25%, rgba(227, 123, 124, 0.25) 50%, rgba(255, 228, 180, 0.25));
+				background-size: 128px 128px, auto;
+				background-color: #726193;
+			}
+
+			.spanel > *.color2 {
+				background-image: url("/dist/Images/overlay.png"), linear-gradient(45deg, rgba(114, 97, 147, 0.25) 25%, rgba(227, 123, 124, 0.25) 50%, rgba(255, 228, 180, 0.25));
+				background-size: 128px 128px, auto;
+				background-color: #e37b7c;
+			}
+
+			.spanel > *.color3 {
+				background-image: url("/dist/Images/overlay.png"), linear-gradient(45deg, rgba(114, 97, 147, 0.25) 25%, rgba(227, 123, 124, 0.25) 50%, rgba(255, 228, 180, 0.25));
+				background-size: 128px 128px, auto;
+				background-color: #ffe4b4;
+			}
+
+			.spanel > *.color4 {
+				background-image: url("/dist/Images/overlay.png"), linear-gradient(45deg, rgba(114, 97, 147, 0.25) 25%, rgba(227, 123, 124, 0.25) 50%, rgba(255, 228, 180, 0.25));
+				background-size: 128px 128px, auto;
+				background-color: #353865;
+			}
+
+			.spanel > *.color1-alt {
+				background-image: url("/dist/Images/overlay.png"), linear-gradient(45deg, rgba(114, 97, 147, 0.175) 25%, rgba(227, 123, 124, 0.175) 50%, rgba(255, 228, 180, 0.175));
+				background-size: 128px 128px, auto;
+				background-color: #6c5e86;
+			}
+
+			.spanel > *.color2-alt {
+				background-image: url("/dist/Images/overlay.png"), linear-gradient(45deg, rgba(114, 97, 147, 0.175) 25%, rgba(227, 123, 124, 0.175) 50%, rgba(255, 228, 180, 0.175));
+				background-size: 128px 128px, auto;
+				background-color: #de7172;
+			}
+
+			.spanel > *.color3-alt {
+				background-image: url("/dist/Images/overlay.png"), linear-gradient(45deg, rgba(114, 97, 147, 0.175) 25%, rgba(227, 123, 124, 0.175) 50%, rgba(255, 228, 180, 0.175));
+				background-size: 128px 128px, auto;
+				background-color: #fedea6;
+			}
+
+			.spanel > *.color4-alt {
+				background-image: url("/dist/Images/overlay.png"), linear-gradient(45deg, rgba(114, 97, 147, 0.175) 25%, rgba(227, 123, 124, 0.175) 50%, rgba(255, 228, 180, 0.175));
+				background-size: 128px 128px, auto;
+				background-color: #323459;
+			}
+
+		.spanel > .intro {
+			padding: 3.5rem 3.5rem 2rem 3.5rem ;
+			display: -moz-flex;
+			display: -webkit-flex;
+			display: -ms-flex;
+			display: flex;
+			-moz-flex-grow: 0;
+			-webkit-flex-grow: 0;
+			-ms-flex-grow: 0;
+			flex-grow: 0;
+			-moz-flex-shrink: 0;
+			-webkit-flex-shrink: 0;
+			-ms-flex-shrink: 0;
+			flex-shrink: 0;
+			-moz-justify-content: center;
+			-webkit-justify-content: center;
+			-ms-justify-content: center;
+			justify-content: center;
+			-moz-align-items: -moz-flex-start;
+			-webkit-align-items: -webkit-flex-start;
+			-ms-align-items: -ms-flex-start;
+			align-items: flex-start;
+			-moz-flex-direction: column;
+			-webkit-flex-direction: column;
+			-ms-flex-direction: column;
+			flex-direction: column;
+			width: 22rem;
+		}
+
+			.spanel > .intro.joined {
+				width: 18.5rem;
+				padding-right: 0;
+			}
+
+				.spanel > .intro.joined + .inner {
+					padding-left: 2.625rem;
+				}
+
+		.spanel > .inner {
+			padding: 3.5rem 3.5rem 2rem 3.5rem ;
+			display: -moz-flex;
+			display: -webkit-flex;
+			display: -ms-flex;
+			display: flex;
+			-moz-flex-grow: 1;
+			-webkit-flex-grow: 1;
+			-ms-flex-grow: 1;
+			flex-grow: 1;
+			-moz-flex-shrink: 1;
+			-webkit-flex-shrink: 1;
+			-ms-flex-shrink: 1;
+			flex-shrink: 1;
+			-moz-justify-content: center;
+			-webkit-justify-content: center;
+			-ms-justify-content: center;
+			justify-content: center;
+			-moz-align-items: -moz-flex-start;
+			-webkit-align-items: -webkit-flex-start;
+			-ms-align-items: -ms-flex-start;
+			align-items: flex-start;
+			-moz-flex-direction: column;
+			-webkit-flex-direction: column;
+			-ms-flex-direction: column;
+			flex-direction: column;
+			position: relative;
+			width: 100%;
+		}
+
+			.spanel > .inner.columns {
+				display: -moz-flex;
+				display: -webkit-flex;
+				display: -ms-flex;
+				display: flex;
+				-moz-justify-content: center;
+				-webkit-justify-content: center;
+				-ms-justify-content: center;
+				justify-content: center;
+				-moz-align-items: center;
+				-webkit-align-items: center;
+				-ms-align-items: center;
+				align-items: center;
+				-moz-flex-direction: row;
+				-webkit-flex-direction: row;
+				-ms-flex-direction: row;
+				flex-direction: row;
+			}
+
+				.spanel > .inner.columns > * {
+					-moz-flex-grow: 0;
+					-webkit-flex-grow: 0;
+					-ms-flex-grow: 0;
+					flex-grow: 0;
+					-moz-flex-shrink: 0;
+					-webkit-flex-shrink: 0;
+					-ms-flex-shrink: 0;
+					flex-shrink: 0;
+					margin-left: 3.5rem;
+				}
+
+				.spanel > .inner.columns > :first-child {
+					margin-left: 0;
+				}
+
+				.spanel > .inner.columns.divided > * {
+					margin-left: 7rem;
+				}
+
+					.spanel > .inner.columns.divided > *:before {
+						content: '';
+						position: absolute;
+						top: 3.5rem;
+						width: 2px;
+						height: calc(100% - 7rem);
+						margin-left: -3.5rem;
+						background-color: rgba(255, 255, 255, 0.25);
+					}
+
+				.spanel > .inner.columns.divided > :first-child {
+					margin-left: 0;
+				}
+
+					.spanel > .inner.columns.divided > :first-child:before {
+						display: none;
+					}
+
+				.spanel > .inner.columns.aligned {
+					-moz-align-items: -moz-flex-start;
+					-webkit-align-items: -webkit-flex-start;
+					-ms-align-items: -ms-flex-start;
+					align-items: flex-start;
+				}
+
+		.spanel .span-0-25 {
+			width: 2.5rem;
+		}
+
+		.spanel .span-0-5 {
+			width: 5rem;
+		}
+
+		.spanel .span-0-75 {
+			width: 7.5rem;
+		}
+
+		.spanel .span-1 {
+			width: 10rem;
+		}
+
+		.spanel .span-1-25 {
+			width: 12.5rem;
+		}
+
+		.spanel .span-1-5 {
+			width: 15rem;
+		}
+
+		.spanel .span-1-75 {
+			width: 17.5rem;
+		}
+
+		.spanel .span-2 {
+			width: 20rem;
+		}
+
+		.spanel .span-2-25 {
+			width: 22.5rem;
+		}
+
+		.spanel .span-2-5 {
+			width: 25rem;
+		}
+
+		.spanel .span-2-75 {
+			width: 27.5rem;
+		}
+
+		.spanel .span-3 {
+			width: 30rem;
+		}
+
+		.spanel .span-3-25 {
+			width: 32.5rem;
+		}
+
+		.spanel .span-3-5 {
+			width: 35rem;
+		}
+
+		.spanel .span-3-75 {
+			width: 37.5rem;
+		}
+
+		.spanel .span-4 {
+			width: 40rem;
+		}
+
+		.spanel .span-4-25 {
+			width: 42.5rem;
+		}
+
+		.spanel .span-4-5 {
+			width: 45rem;
+		}
+
+		.spanel .span-4-75 {
+			width: 47.5rem;
+		}
+
+		.spanel .span-5 {
+			width: 50rem;
+		}
+
+		.spanel .span-5-25 {
+			width: 52.5rem;
+		}
+
+		.spanel .span-5-5 {
+			width: 55rem;
+		}
+
+		.spanel .span-5-75 {
+			width: 57.5rem;
+		}
+
+		.spanel .span-6 {
+			width: 60rem;
+		}
+
+		.spanel .span-6-25 {
+			width: 62.5rem;
+		}
+
+		.spanel .span-6-5 {
+			width: 65rem;
+		}
+
+		.spanel .span-6-75 {
+			width: 67.5rem;
+		}
+
+		.spanel .span-7 {
+			width: 70rem;
+		}
+
+		.spanel .span-7-25 {
+			width: 72.5rem;
+		}
+
+		.spanel .span-7-5 {
+			width: 75rem;
+		}
+
+		.spanel .span-7-75 {
+			width: 77.5rem;
+		}
+
+		.spanel .span-8 {
+			width: 80rem;
+		}
+
+		.spanel .span-8-25 {
+			width: 82.5rem;
+		}
+
+		.spanel .span-8-5 {
+			width: 85rem;
+		}
+
+		.spanel .span-8-75 {
+			width: 87.5rem;
+		}
+
+		.spanel .span-9 {
+			width: 90rem;
+		}
+
+		.spanel .span-9-25 {
+			width: 92.5rem;
+		}
+
+		.spanel .span-9-5 {
+			width: 95rem;
+		}
+
+		.spanel .span-9-75 {
+			width: 97.5rem;
+		}
+
+		.spanel .span-10 {
+			width: 100rem;
+		}
+
+		.spanel.small {
+			width: 35rem;
+		}
+
+		.spanel.medium {
+			width: 50rem;
+		}
+
+		.spanel.large {
+			width: 65rem;
+		}
+
+		.spanel.small .span-0-25, .spanel.medium .span-0-25, .spanel.large .span-0-25 {
+			width: 2.5%;
+		}
+
+		.spanel.small .span-0-5, .spanel.medium .span-0-5, .spanel.large .span-0-5 {
+			width: 5%;
+		}
+
+		.spanel.small .span-0-75, .spanel.medium .span-0-75, .spanel.large .span-0-75 {
+			width: 7.5%;
+		}
+
+		.spanel.small .span-1, .spanel.medium .span-1, .spanel.large .span-1 {
+			width: 10%;
+		}
+
+		.spanel.small .span-1-25, .spanel.medium .span-1-25, .spanel.large .span-1-25 {
+			width: 12.5%;
+		}
+
+		.spanel.small .span-1-5, .spanel.medium .span-1-5, .spanel.large .span-1-5 {
+			width: 15%;
+		}
+
+		.spanel.small .span-1-75, .spanel.medium .span-1-75, .spanel.large .span-1-75 {
+			width: 17.5%;
+		}
+
+		.spanel.small .span-2, .spanel.medium .span-2, .spanel.large .span-2 {
+			width: 20%;
+		}
+
+		.spanel.small .span-2-25, .spanel.medium .span-2-25, .spanel.large .span-2-25 {
+			width: 22.5%;
+		}
+
+		.spanel.small .span-2-5, .spanel.medium .span-2-5, .spanel.large .span-2-5 {
+			width: 25%;
+		}
+
+		.spanel.small .span-2-75, .spanel.medium .span-2-75, .spanel.large .span-2-75 {
+			width: 27.5%;
+		}
+
+		.spanel.small .span-3, .spanel.medium .span-3, .spanel.large .span-3 {
+			width: 30%;
+		}
+
+		.spanel.small .span-3-25, .spanel.medium .span-3-25, .spanel.large .span-3-25 {
+			width: 32.5%;
+		}
+
+		.spanel.small .span-3-5, .spanel.medium .span-3-5, .spanel.large .span-3-5 {
+			width: 35%;
+		}
+
+		.spanel.small .span-3-75, .spanel.medium .span-3-75, .spanel.large .span-3-75 {
+			width: 37.5%;
+		}
+
+		.spanel.small .span-4, .spanel.medium .span-4, .spanel.large .span-4 {
+			width: 40%;
+		}
+
+		.spanel.small .span-4-25, .spanel.medium .span-4-25, .spanel.large .span-4-25 {
+			width: 42.5%;
+		}
+
+		.spanel.small .span-4-5, .spanel.medium .span-4-5, .spanel.large .span-4-5 {
+			width: 45%;
+		}
+
+		.spanel.small .span-4-75, .spanel.medium .span-4-75, .spanel.large .span-4-75 {
+			width: 47.5%;
+		}
+
+		.spanel.small .span-5, .spanel.medium .span-5, .spanel.large .span-5 {
+			width: 50%;
+		}
+
+		.spanel.small .span-5-25, .spanel.medium .span-5-25, .spanel.large .span-5-25 {
+			width: 52.5%;
+		}
+
+		.spanel.small .span-5-5, .spanel.medium .span-5-5, .spanel.large .span-5-5 {
+			width: 55%;
+		}
+
+		.spanel.small .span-5-75, .spanel.medium .span-5-75, .spanel.large .span-5-75 {
+			width: 57.5%;
+		}
+
+		.spanel.small .span-6, .spanel.medium .span-6, .spanel.large .span-6 {
+			width: 60%;
+		}
+
+		.spanel.small .span-6-25, .spanel.medium .span-6-25, .spanel.large .span-6-25 {
+			width: 62.5%;
+		}
+
+		.spanel.small .span-6-5, .spanel.medium .span-6-5, .spanel.large .span-6-5 {
+			width: 65%;
+		}
+
+		.spanel.small .span-6-75, .spanel.medium .span-6-75, .spanel.large .span-6-75 {
+			width: 67.5%;
+		}
+
+		.spanel.small .span-7, .spanel.medium .span-7, .spanel.large .span-7 {
+			width: 70%;
+		}
+
+		.spanel.small .span-7-25, .spanel.medium .span-7-25, .spanel.large .span-7-25 {
+			width: 72.5%;
+		}
+
+		.spanel.small .span-7-5, .spanel.medium .span-7-5, .spanel.large .span-7-5 {
+			width: 75%;
+		}
+
+		.spanel.small .span-7-75, .spanel.medium .span-7-75, .spanel.large .span-7-75 {
+			width: 77.5%;
+		}
+
+		.spanel.small .span-8, .spanel.medium .span-8, .spanel.large .span-8 {
+			width: 80%;
+		}
+
+		.spanel.small .span-8-25, .spanel.medium .span-8-25, .spanel.large .span-8-25 {
+			width: 82.5%;
+		}
+
+		.spanel.small .span-8-5, .spanel.medium .span-8-5, .spanel.large .span-8-5 {
+			width: 85%;
+		}
+
+		.spanel.small .span-8-75, .spanel.medium .span-8-75, .spanel.large .span-8-75 {
+			width: 87.5%;
+		}
+
+		.spanel.small .span-9, .spanel.medium .span-9, .spanel.large .span-9 {
+			width: 90%;
+		}
+
+		.spanel.small .span-9-25, .spanel.medium .span-9-25, .spanel.large .span-9-25 {
+			width: 92.5%;
+		}
+
+		.spanel.small .span-9-5, .spanel.medium .span-9-5, .spanel.large .span-9-5 {
+			width: 95%;
+		}
+
+		.spanel.small .span-9-75, .spanel.medium .span-9-75, .spanel.large .span-9-75 {
+			width: 97.5%;
+		}
+
+		.spanel.small .span-10, .spanel.medium .span-10, .spanel.large .span-10 {
+			width: 100%;
+		}
+
+		.spanel.color0 {
+			background-image: url("/dist/Images/overlay.png"), linear-gradient(45deg, #726193 20%, #e37b7c 60%, #ffe4b4);
+			background-size: 128px 128px, auto;
+		}
+
+		.spanel.color1 {
+			background-image: url("/dist/Images/overlay.png"), linear-gradient(45deg, rgba(114, 97, 147, 0.25) 25%, rgba(227, 123, 124, 0.25) 50%, rgba(255, 228, 180, 0.25));
+			background-size: 128px 128px, auto;
+			background-color: #726193;
+		}
+
+		.spanel.color2 {
+			background-image: url("/dist/Images/overlay.png"), linear-gradient(45deg, rgba(114, 97, 147, 0.25) 25%, rgba(227, 123, 124, 0.25) 50%, rgba(255, 228, 180, 0.25));
+			background-size: 128px 128px, auto;
+			background-color: #e37b7c;
+		}
+
+		.spanel.color3 {
+			background-image: url("/dist/Images/overlay.png"), linear-gradient(45deg, rgba(114, 97, 147, 0.25) 25%, rgba(227, 123, 124, 0.25) 50%, rgba(255, 228, 180, 0.25));
+			background-size: 128px 128px, auto;
+			background-color: #ffe4b4;
+		}
+
+		.spanel.color4 {
+			background-image: url("/dist/Images/overlay.png"), linear-gradient(45deg, rgba(114, 97, 147, 0.25) 25%, rgba(227, 123, 124, 0.25) 50%, rgba(255, 228, 180, 0.25));
+			background-size: 128px 128px, auto;
+			background-color: #353865;
+		}
+
+		.spanel.color1-alt {
+			background-image: url("/dist/Images/overlay.png"), linear-gradient(45deg, rgba(114, 97, 147, 0.175) 25%, rgba(227, 123, 124, 0.175) 50%, rgba(255, 228, 180, 0.175));
+			background-size: 128px 128px, auto;
+			background-color: #6c5e86;
+		}
+
+		.spanel.color2-alt {
+			background-image: url("/dist/Images/overlay.png"), linear-gradient(45deg, rgba(114, 97, 147, 0.175) 25%, rgba(227, 123, 124, 0.175) 50%, rgba(255, 228, 180, 0.175));
+			background-size: 128px 128px, auto;
+			background-color: #de7172;
+		}
+
+		.spanel.color3-alt {
+			background-image: url("/dist/Images/overlay.png"), linear-gradient(45deg, rgba(114, 97, 147, 0.175) 25%, rgba(227, 123, 124, 0.175) 50%, rgba(255, 228, 180, 0.175));
+			background-size: 128px 128px, auto;
+			background-color: #fedea6;
+		}
+
+		.spanel.color4-alt {
+			background-image: url("/dist/Images/overlay.png"), linear-gradient(45deg, rgba(114, 97, 147, 0.175) 25%, rgba(227, 123, 124, 0.175) 50%, rgba(255, 228, 180, 0.175));
+			background-size: 128px 128px, auto;
+			background-color: #323459;
+		}
+
+	@media screen and (max-width: 736px) {
+
+		.spanel {
+			-moz-flex-direction: column;
+			-webkit-flex-direction: column;
+			-ms-flex-direction: column;
+			flex-direction: column;
+			height: auto;
+		}
+
+			.spanel > *.color1 {
+				background-image: url("/dist/Images/overlay.png"), linear-gradient(135deg, rgba(114, 97, 147, 0.25) 25%, rgba(227, 123, 124, 0.25) 50%, rgba(255, 228, 180, 0.25));
+				background-size: 128px 128px, auto;
+				background-color: #726193;
+			}
+
+			.spanel > *.color2 {
+				background-image: url("/dist/Images/overlay.png"), linear-gradient(135deg, rgba(114, 97, 147, 0.25) 25%, rgba(227, 123, 124, 0.25) 50%, rgba(255, 228, 180, 0.25));
+				background-size: 128px 128px, auto;
+				background-color: #e37b7c;
+			}
+
+			.spanel > *.color3 {
+				background-image: url("/dist/Images/overlay.png"), linear-gradient(135deg, rgba(114, 97, 147, 0.25) 25%, rgba(227, 123, 124, 0.25) 50%, rgba(255, 228, 180, 0.25));
+				background-size: 128px 128px, auto;
+				background-color: #ffe4b4;
+			}
+
+			.spanel > *.color4 {
+				background-image: url("/dist/Images/overlay.png"), linear-gradient(135deg, rgba(114, 97, 147, 0.25) 25%, rgba(227, 123, 124, 0.25) 50%, rgba(255, 228, 180, 0.25));
+				background-size: 128px 128px, auto;
+				background-color: #353865;
+			}
+
+			.spanel > *.color1-alt {
+				background-image: url("/dist/Images/overlay.png"), linear-gradient(135deg, rgba(114, 97, 147, 0.175) 25%, rgba(227, 123, 124, 0.175) 50%, rgba(255, 228, 180, 0.175));
+				background-size: 128px 128px, auto;
+				background-color: #6c5e86;
+			}
+
+			.spanel > *.color2-alt {
+				background-image: url("/dist/Images/overlay.png"), linear-gradient(135deg, rgba(114, 97, 147, 0.175) 25%, rgba(227, 123, 124, 0.175) 50%, rgba(255, 228, 180, 0.175));
+				background-size: 128px 128px, auto;
+				background-color: #de7172;
+			}
+
+			.spanel > *.color3-alt {
+				background-image: url("/dist/Images/overlay.png"), linear-gradient(135deg, rgba(114, 97, 147, 0.175) 25%, rgba(227, 123, 124, 0.175) 50%, rgba(255, 228, 180, 0.175));
+				background-size: 128px 128px, auto;
+				background-color: #fedea6;
+			}
+
+			.spanel > *.color4-alt {
+				background-image: url("/dist/Images/overlay.png"), linear-gradient(135deg, rgba(114, 97, 147, 0.175) 25%, rgba(227, 123, 124, 0.175) 50%, rgba(255, 228, 180, 0.175));
+				background-size: 128px 128px, auto;
+				background-color: #323459;
+			}
+
+			.spanel > .intro {
+				padding: 2.8875rem 1.75rem 1.3875rem 1.75rem ;
+				width: 100% !important;
+			}
+
+				.spanel > .intro.joined {
+					padding-bottom: 0;
+					padding-right: 1.75rem;
+				}
+
+					.spanel > .intro.joined + .inner {
+						padding-top: 0;
+						padding-left: 1.75rem;
+					}
+
+			.spanel > .inner {
+				padding: 2.8875rem 1.75rem 1.3875rem 1.75rem ;
+			}
+
+				.spanel > .inner.columns {
+					-moz-flex-direction: column;
+					-webkit-flex-direction: column;
+					-ms-flex-direction: column;
+					flex-direction: column;
+				}
+
+					.spanel > .inner.columns > * {
+						margin-left: 0;
+						margin-top: 0;
+					}
+
+					.spanel > .inner.columns > :first-child {
+						margin-top: 0;
+					}
+
+					.spanel > .inner.columns.divided > * {
+						margin-left: 0;
+						margin-top: 3.5rem;
+					}
+
+						.spanel > .inner.columns.divided > *:before {
+							content: '';
+							position: absolute;
+							top: auto;
+							left: 1.75rem;
+							width: calc(100% - 3.5rem);
+							height: 2px;
+							margin-left: 0;
+							margin-top: -1.75rem;
+						}
+
+					.spanel > .inner.columns.divided > :first-child {
+						margin-top: 0;
+					}
+
+			.spanel .span-0-25 {
+				width: 100%;
+			}
+
+			.spanel .span-0-5 {
+				width: 100%;
+			}
+
+			.spanel .span-0-75 {
+				width: 100%;
+			}
+
+			.spanel .span-1 {
+				width: 100%;
+			}
+
+			.spanel .span-1-25 {
+				width: 100%;
+			}
+
+			.spanel .span-1-5 {
+				width: 100%;
+			}
+
+			.spanel .span-1-75 {
+				width: 100%;
+			}
+
+			.spanel .span-2 {
+				width: 100%;
+			}
+
+			.spanel .span-2-25 {
+				width: 100%;
+			}
+
+			.spanel .span-2-5 {
+				width: 100%;
+			}
+
+			.spanel .span-2-75 {
+				width: 100%;
+			}
+
+			.spanel .span-3 {
+				width: 100%;
+			}
+
+			.spanel .span-3-25 {
+				width: 100%;
+			}
+
+			.spanel .span-3-5 {
+				width: 100%;
+			}
+
+			.spanel .span-3-75 {
+				width: 100%;
+			}
+
+			.spanel .span-4 {
+				width: 100%;
+			}
+
+			.spanel .span-4-25 {
+				width: 100%;
+			}
+
+			.spanel .span-4-5 {
+				width: 100%;
+			}
+
+			.spanel .span-4-75 {
+				width: 100%;
+			}
+
+			.spanel .span-5 {
+				width: 100%;
+			}
+
+			.spanel .span-5-25 {
+				width: 100%;
+			}
+
+			.spanel .span-5-5 {
+				width: 100%;
+			}
+
+			.spanel .span-5-75 {
+				width: 100%;
+			}
+
+			.spanel .span-6 {
+				width: 100%;
+			}
+
+			.spanel .span-6-25 {
+				width: 100%;
+			}
+
+			.spanel .span-6-5 {
+				width: 100%;
+			}
+
+			.spanel .span-6-75 {
+				width: 100%;
+			}
+
+			.spanel .span-7 {
+				width: 100%;
+			}
+
+			.spanel .span-7-25 {
+				width: 100%;
+			}
+
+			.spanel .span-7-5 {
+				width: 100%;
+			}
+
+			.spanel .span-7-75 {
+				width: 100%;
+			}
+
+			.spanel .span-8 {
+				width: 100%;
+			}
+
+			.spanel .span-8-25 {
+				width: 100%;
+			}
+
+			.spanel .span-8-5 {
+				width: 100%;
+			}
+
+			.spanel .span-8-75 {
+				width: 100%;
+			}
+
+			.spanel .span-9 {
+				width: 100%;
+			}
+
+			.spanel .span-9-25 {
+				width: 100%;
+			}
+
+			.spanel .span-9-5 {
+				width: 100%;
+			}
+
+			.spanel .span-9-75 {
+				width: 100%;
+			}
+
+			.spanel .span-10 {
+				width: 100%;
+			}
+
+			.spanel.small, .spanel.medium, .spanel.large {
+				width: 100% !important;
+			}
+
+				.spanel.small .span-0-25, .spanel.medium .span-0-25, .spanel.large .span-0-25 {
+					width: 100%;
+				}
+
+				.spanel.small .span-0-5, .spanel.medium .span-0-5, .spanel.large .span-0-5 {
+					width: 100%;
+				}
+
+				.spanel.small .span-0-75, .spanel.medium .span-0-75, .spanel.large .span-0-75 {
+					width: 100%;
+				}
+
+				.spanel.small .span-1, .spanel.medium .span-1, .spanel.large .span-1 {
+					width: 100%;
+				}
+
+				.spanel.small .span-1-25, .spanel.medium .span-1-25, .spanel.large .span-1-25 {
+					width: 100%;
+				}
+
+				.spanel.small .span-1-5, .spanel.medium .span-1-5, .spanel.large .span-1-5 {
+					width: 100%;
+				}
+
+				.spanel.small .span-1-75, .spanel.medium .span-1-75, .spanel.large .span-1-75 {
+					width: 100%;
+				}
+
+				.spanel.small .span-2, .spanel.medium .span-2, .spanel.large .span-2 {
+					width: 100%;
+				}
+
+				.spanel.small .span-2-25, .spanel.medium .span-2-25, .spanel.large .span-2-25 {
+					width: 100%;
+				}
+
+				.spanel.small .span-2-5, .spanel.medium .span-2-5, .spanel.large .span-2-5 {
+					width: 100%;
+				}
+
+				.spanel.small .span-2-75, .spanel.medium .span-2-75, .spanel.large .span-2-75 {
+					width: 100%;
+				}
+
+				.spanel.small .span-3, .spanel.medium .span-3, .spanel.large .span-3 {
+					width: 100%;
+				}
+
+				.spanel.small .span-3-25, .spanel.medium .span-3-25, .spanel.large .span-3-25 {
+					width: 100%;
+				}
+
+				.spanel.small .span-3-5, .spanel.medium .span-3-5, .spanel.large .span-3-5 {
+					width: 100%;
+				}
+
+				.spanel.small .span-3-75, .spanel.medium .span-3-75, .spanel.large .span-3-75 {
+					width: 100%;
+				}
+
+				.spanel.small .span-4, .spanel.medium .span-4, .spanel.large .span-4 {
+					width: 100%;
+				}
+
+				.spanel.small .span-4-25, .spanel.medium .span-4-25, .spanel.large .span-4-25 {
+					width: 100%;
+				}
+
+				.spanel.small .span-4-5, .spanel.medium .span-4-5, .spanel.large .span-4-5 {
+					width: 100%;
+				}
+
+				.spanel.small .span-4-75, .spanel.medium .span-4-75, .spanel.large .span-4-75 {
+					width: 100%;
+				}
+
+				.spanel.small .span-5, .spanel.medium .span-5, .spanel.large .span-5 {
+					width: 100%;
+				}
+
+				.spanel.small .span-5-25, .spanel.medium .span-5-25, .spanel.large .span-5-25 {
+					width: 100%;
+				}
+
+				.spanel.small .span-5-5, .spanel.medium .span-5-5, .spanel.large .span-5-5 {
+					width: 100%;
+				}
+
+				.spanel.small .span-5-75, .spanel.medium .span-5-75, .spanel.large .span-5-75 {
+					width: 100%;
+				}
+
+				.spanel.small .span-6, .spanel.medium .span-6, .spanel.large .span-6 {
+					width: 100%;
+				}
+
+				.spanel.small .span-6-25, .spanel.medium .span-6-25, .spanel.large .span-6-25 {
+					width: 100%;
+				}
+
+				.spanel.small .span-6-5, .spanel.medium .span-6-5, .spanel.large .span-6-5 {
+					width: 100%;
+				}
+
+				.spanel.small .span-6-75, .spanel.medium .span-6-75, .spanel.large .span-6-75 {
+					width: 100%;
+				}
+
+				.spanel.small .span-7, .spanel.medium .span-7, .spanel.large .span-7 {
+					width: 100%;
+				}
+
+				.spanel.small .span-7-25, .spanel.medium .span-7-25, .spanel.large .span-7-25 {
+					width: 100%;
+				}
+
+				.spanel.small .span-7-5, .spanel.medium .span-7-5, .spanel.large .span-7-5 {
+					width: 100%;
+				}
+
+				.spanel.small .span-7-75, .spanel.medium .span-7-75, .spanel.large .span-7-75 {
+					width: 100%;
+				}
+
+				.spanel.small .span-8, .spanel.medium .span-8, .spanel.large .span-8 {
+					width: 100%;
+				}
+
+				.spanel.small .span-8-25, .spanel.medium .span-8-25, .spanel.large .span-8-25 {
+					width: 100%;
+				}
+
+				.spanel.small .span-8-5, .spanel.medium .span-8-5, .spanel.large .span-8-5 {
+					width: 100%;
+				}
+
+				.spanel.small .span-8-75, .spanel.medium .span-8-75, .spanel.large .span-8-75 {
+					width: 100%;
+				}
+
+				.spanel.small .span-9, .spanel.medium .span-9, .spanel.large .span-9 {
+					width: 100%;
+				}
+
+				.spanel.small .span-9-25, .spanel.medium .span-9-25, .spanel.large .span-9-25 {
+					width: 100%;
+				}
+
+				.spanel.small .span-9-5, .spanel.medium .span-9-5, .spanel.large .span-9-5 {
+					width: 100%;
+				}
+
+				.spanel.small .span-9-75, .spanel.medium .span-9-75, .spanel.large .span-9-75 {
+					width: 100%;
+				}
+
+				.spanel.small .span-10, .spanel.medium .span-10, .spanel.large .span-10 {
+					width: 100%;
+				}
+
+			.spanel.color1 {
+				background-image: url("/dist/Images/overlay.png"), linear-gradient(135deg, rgba(114, 97, 147, 0.25) 25%, rgba(227, 123, 124, 0.25) 50%, rgba(255, 228, 180, 0.25));
+				background-size: 128px 128px, auto;
+				background-color: #726193;
+			}
+
+			.spanel.color2 {
+				background-image: url("/dist/Images/overlay.png"), linear-gradient(135deg, rgba(114, 97, 147, 0.25) 25%, rgba(227, 123, 124, 0.25) 50%, rgba(255, 228, 180, 0.25));
+				background-size: 128px 128px, auto;
+				background-color: #e37b7c;
+			}
+
+			.spanel.color3 {
+				background-image: url("/dist/Images/overlay.png"), linear-gradient(135deg, rgba(114, 97, 147, 0.25) 25%, rgba(227, 123, 124, 0.25) 50%, rgba(255, 228, 180, 0.25));
+				background-size: 128px 128px, auto;
+				background-color: #ffe4b4;
+			}
+
+			.spanel.color4 {
+				background-image: url("/dist/Images/overlay.png"), linear-gradient(135deg, rgba(114, 97, 147, 0.25) 25%, rgba(227, 123, 124, 0.25) 50%, rgba(255, 228, 180, 0.25));
+				background-size: 128px 128px, auto;
+				background-color: #353865;
+			}
+
+			.spanel.color1-alt {
+				background-image: url("/dist/Images/overlay.png"), linear-gradient(135deg, rgba(114, 97, 147, 0.175) 25%, rgba(227, 123, 124, 0.175) 50%, rgba(255, 228, 180, 0.175));
+				background-size: 128px 128px, auto;
+				background-color: #6c5e86;
+			}
+
+			.spanel.color2-alt {
+				background-image: url("/dist/Images/overlay.png"), linear-gradient(135deg, rgba(114, 97, 147, 0.175) 25%, rgba(227, 123, 124, 0.175) 50%, rgba(255, 228, 180, 0.175));
+				background-size: 128px 128px, auto;
+				background-color: #de7172;
+			}
+
+			.spanel.color3-alt {
+				background-image: url("/dist/Images/overlay.png"), linear-gradient(135deg, rgba(114, 97, 147, 0.175) 25%, rgba(227, 123, 124, 0.175) 50%, rgba(255, 228, 180, 0.175));
+				background-size: 128px 128px, auto;
+				background-color: #fedea6;
+			}
+
+			.spanel.color4-alt {
+				background-image: url("/dist/Images/overlay.png"), linear-gradient(135deg, rgba(114, 97, 147, 0.175) 25%, rgba(227, 123, 124, 0.175) 50%, rgba(255, 228, 180, 0.175));
+				background-size: 128px 128px, auto;
+				background-color: #323459;
+			}
+
+	}
+
+/* Panel (Banner) */
+
+	.spanel.banner {
+		-moz-align-items: stretch;
+		-webkit-align-items: stretch;
+		-ms-align-items: stretch;
+		align-items: stretch;
+	}
+
+		.spanel.banner .content {
+			padding: 3.5rem 3.5rem 2rem 3.5rem ;
+			display: -moz-flex;
+			display: -webkit-flex;
+			display: -ms-flex;
+			display: flex;
+			-moz-flex-direction: column;
+			-webkit-flex-direction: column;
+			-ms-flex-direction: column;
+			flex-direction: column;
+			-moz-justify-content: center;
+			-webkit-justify-content: center;
+			-ms-justify-content: center;
+			justify-content: center;
+			-moz-flex-grow: 0;
+			-webkit-flex-grow: 0;
+			-ms-flex-grow: 0;
+			flex-grow: 0;
+			-moz-flex-shrink: 0;
+			-webkit-flex-shrink: 0;
+			-ms-flex-shrink: 0;
+			flex-shrink: 0;
+		}
+
+			.spanel.banner .content > .actions:last-child {
+				margin-bottom: 0;
+			}
+
+		.spanel.banner .image {
+			-moz-flex-grow: 0;
+			-webkit-flex-grow: 0;
+			-ms-flex-grow: 0;
+			flex-grow: 0;
+			-moz-flex-shrink: 0;
+			-webkit-flex-shrink: 0;
+			-ms-flex-shrink: 0;
+			flex-shrink: 0;
+			position: relative;
+		}
+
+			.spanel.banner .image img {
+				-moz-object-fit: cover;
+				-webkit-object-fit: cover;
+				-ms-object-fit: cover;
+				object-fit: cover;
+				display: block;
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+			}
+
+		.spanel.banner.left {
+			-moz-flex-direction: row;
+			-webkit-flex-direction: row;
+			-ms-flex-direction: row;
+			flex-direction: row;
+		}
+
+		.spanel.banner.right {
+			-moz-flex-direction: row-reverse;
+			-webkit-flex-direction: row-reverse;
+			-ms-flex-direction: row-reverse;
+			flex-direction: row-reverse;
+		}
+
+	@media screen and (max-width: 736px) {
+
+		.spanel.banner .content {
+			padding: 2.8875rem 1.75rem 1.3875rem 1.75rem ;
+			-moz-flex-basis: 60%;
+			-webkit-flex-basis: 60%;
+			-ms-flex-basis: 60%;
+			flex-basis: 60%;
+		}
+
+			.spanel.banner .content > .actions:last-child {
+				margin-bottom: 1.5rem;
+			}
+
+		.spanel.banner .image {
+			-moz-flex-basis: 40%;
+			-webkit-flex-basis: 40%;
+			-ms-flex-basis: 40%;
+			flex-basis: 40%;
+		}
+
+	}
+
+	@media screen and (max-width: 736px) and (orientation: portrait) {
+
+		.spanel.banner .content {
+			-moz-flex-basis: auto;
+			-webkit-flex-basis: auto;
+			-ms-flex-basis: auto;
+			flex-basis: auto;
+		}
+
+		.spanel.banner .image {
+			-moz-flex-basis: auto;
+			-webkit-flex-basis: auto;
+			-ms-flex-basis: auto;
+			flex-basis: auto;
+			height: 18rem;
+		}
+
+		.spanel.banner.left {
+			-moz-flex-direction: column;
+			-webkit-flex-direction: column;
+			-ms-flex-direction: column;
+			flex-direction: column;
+		}
+
+		.spanel.banner.right {
+			-moz-flex-direction: column-reverse;
+			-webkit-flex-direction: column-reverse;
+			-ms-flex-direction: column-reverse;
+			flex-direction: column-reverse;
+		}
+
+	}
+
+/* Panel (Spotlight) */
+
+	.spanel.spotlight {
+		-moz-align-items: stretch;
+		-webkit-align-items: stretch;
+		-ms-align-items: stretch;
+		align-items: stretch;
+		position: relative;
+	}
+
+		.spanel.spotlight > * {
+			z-index: 1;
+		}
+
+		.spanel.spotlight .content {
+			display: -moz-flex;
+			display: -webkit-flex;
+			display: -ms-flex;
+			display: flex;
+			-moz-flex-direction: column;
+			-webkit-flex-direction: column;
+			-ms-flex-direction: column;
+			flex-direction: column;
+			-moz-justify-content: center;
+			-webkit-justify-content: center;
+			-ms-justify-content: center;
+			justify-content: center;
+			padding: 3.5rem 3.5rem 2rem 3.5rem ;
+		}
+
+		.spanel.spotlight .image {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			z-index: 0;
+		}
+
+			.spanel.spotlight .image img {
+				-moz-object-fit: cover;
+				-webkit-object-fit: cover;
+				-ms-object-fit: cover;
+				object-fit: cover;
+				display: block;
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+			}
+
+		.spanel.spotlight.left {
+			-moz-justify-content: -moz-flex-start;
+			-webkit-justify-content: -webkit-flex-start;
+			-ms-justify-content: -ms-flex-start;
+			justify-content: flex-start;
+		}
+
+			.spanel.spotlight.left .content {
+				background-image: linear-gradient(-90deg, transparent 0%, rgba(0, 0, 0, 0.125) 30%, rgba(0, 0, 0, 0.175) 50%);
+			}
+
+		.spanel.spotlight.right {
+			-moz-justify-content: -moz-flex-end;
+			-webkit-justify-content: -webkit-flex-end;
+			-ms-justify-content: -ms-flex-end;
+			justify-content: flex-end;
+		}
+
+			.spanel.spotlight.right .content {
+				background-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.125) 30%, rgba(0, 0, 0, 0.175) 50%);
+			}
+
+	@media screen and (max-width: 736px) {
+
+		.spanel.spotlight .content {
+			padding: 2.8875rem 1.75rem 1.3875rem 1.75rem ;
+			-moz-flex-direction: column !important;
+			-webkit-flex-direction: column !important;
+			-ms-flex-direction: column !important;
+			flex-direction: column !important;
+			background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.25) 70%, rgba(0, 0, 0, 0.175)) !important;
+			min-height: 25rem;
+		}
+
+	}
+
+	@media screen and (max-width: 480px) {
+
+		.panel.spotlight .content {
+			min-height: 30rem;
+		}
+
+	}
 
