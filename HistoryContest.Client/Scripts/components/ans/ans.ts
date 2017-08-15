@@ -27,7 +27,11 @@ var currentPage = 0;
 //saveAns(this)
 	$(document).on("click","input",function(id){
 		var ID = $(id.target).attr('id');
-		saveAns(ID);
+		if(ID != "submit"){
+			saveAns(ID);
+		}else{
+			submit();
+		}
 	});
 //page-scroll for icon fa-angle-right
 	$(document).on("click",".fa-angle-right",function(e){
