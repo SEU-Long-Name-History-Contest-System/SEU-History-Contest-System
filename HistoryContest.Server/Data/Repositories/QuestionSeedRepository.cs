@@ -11,17 +11,17 @@ namespace HistoryContest.Server.Data.Repositories
 
         public QuestionSeedRepository(ContestContext context) : base(context)
         {
-
+            
         }
 
-        public IEnumerable<Student> GetQuestionsByID(int id)
+        public IEnumerable<IEnumerable<AQuestionBase>> GetQuestionsByID(int id)
         {
-            return new List<Student>();
+            return new List<List<AQuestionBase>>();
         }
 
-        public void CreateNewSeed()
+        public QuestionSeed CreateNewSeed()
         {
-
+            return new QuestionSeed();
         }
 
         public void Save()

@@ -1,4 +1,5 @@
-﻿using HistoryContest.Server.Data.Repositories;
+﻿using HistoryContest.Server.Models.Entities;
+using HistoryContest.Server.Data.Repositories;
 using System;
 using System.Threading.Tasks;
 
@@ -8,6 +9,8 @@ namespace HistoryContest.Server.Data
     {
         public ContestContext context;
         private StudentRepository studentRepository;
+        private GenericRepository<Counselor> counselorRepository;
+        private GenericRepository<Administrator> adminRepository;
         private QuestionSeedRepository questionSeedRepository;
         
         public UnitOfWork(ContestContext context)
@@ -20,6 +23,18 @@ namespace HistoryContest.Server.Data
         {
             get { return studentRepository ?? (studentRepository = new StudentRepository(context)); }
             set { studentRepository = value; }
+        }
+
+        public GenericRepository<Counselor> CounselorRepository
+        {
+            get { return counselorRepository ?? (counselorRepository = new GenericRepository<Counselor>(context)); }
+            set { counselorRepository = value; }
+        }
+
+        public GenericRepository<Administrator> AdminRepository
+        {
+            get { return adminRepository ?? (adminRepository = new GenericRepository<Administrator>(context)); }
+            set { adminRepository = value; }
         }
 
         public QuestionSeedRepository QuestionSeedRepository

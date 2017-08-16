@@ -8,9 +8,10 @@ using HistoryContest.Server.Data;
 namespace HistoryContest.Server.Data.Migrations
 {
     [DbContext(typeof(ContestContext))]
-    partial class ContestContextModelSnapshot : ModelSnapshot
+    [Migration("20170815132513_UserImproment")]
+    partial class UserImproment
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.2")

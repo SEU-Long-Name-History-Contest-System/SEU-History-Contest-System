@@ -4,10 +4,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 using HistoryContest.Server.Data;
 
 namespace HistoryContest.Server.Controllers.APIs
 {
+    [Authorize]
     [Produces("application/json")]
     [Route("api/[controller]")]
     public class ResultController : Controller

@@ -161,5 +161,10 @@
 
   CounselorController/Delete/id
 
-* ​
+* ​API功能实现:
 
+  StudentController
+
+  CounselorController
+
+  QuestionController(except GetQuestionSet)

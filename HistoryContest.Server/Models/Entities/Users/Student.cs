@@ -8,14 +8,14 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace HistoryContest.Server.Models.Entities
 {
     // Entity Framework interprets a property as a foreign key property if it's named <navigation property name><primary key property name>
-    public class Student : IEntityBase
+    public class Student : IUserBase
     {
         [DatabaseGenerated(DatabaseGeneratedOption.None)] // ID为学生学号，而不是由数据库自动生成
-        [Key]
         public int ID { get; set; }
         public string Name { get; set; }
         public int CardID { get; set; }
         public Int64? State { get; set; }
+        //public int? Score { get; set; }
         public int Score { get; set; } = 0;
         //public TimeSpan TimeLeft { get; set; }
 
@@ -65,6 +65,11 @@ namespace HistoryContest.Server.Models.Entities
                     State |= (Int64)value[i] << i + 40;
                 }
             }
+        }
+
+        public bool CheckPassword(string password)
+        {
+            return CardID == int.Parse(password);
         }
     }
 }

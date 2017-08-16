@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
 
 namespace HistoryContest.Server.Controllers
 {
@@ -10,6 +11,7 @@ namespace HistoryContest.Server.Controllers
     {
         public IActionResult Index()
         {
+            HttpContext.Session.SetString("id", "213162022");
             return View();
         }
 
