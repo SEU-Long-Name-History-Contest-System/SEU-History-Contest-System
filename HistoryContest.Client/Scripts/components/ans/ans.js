@@ -1,4 +1,5 @@
 var $ = require("../../../node_modules/jquery/dist/jquery.min.js");
+var inTime = require('./ans.ts').inTime;
 	var answerQues = new Array(30);
 	answerQues[0] = "curAns"
 	exports.saveAns=function(clickID){
@@ -23,7 +24,7 @@ var $ = require("../../../node_modules/jquery/dist/jquery.min.js");
 		var tot = 0;
 		for(var i = 0; i<30; i++)
 			if(answerQues[i] == null) tot++;
-		if(tot!=0)
+		if(tot!=0 && inTime)
 			alert("您还有未作答题目哦！");
 		else {
 			alert("已提交！");

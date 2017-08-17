@@ -10,6 +10,7 @@ require('../../../Images/banner.jpg');
 require('../../../Images/bg.jpg');
 require('../../../Images/overlay.png');
 require('../../../Images/pic01.jpg');
+var inTime = true;
 $(function(){
 var currentPage = 0;
 //saveAns(this)
@@ -18,7 +19,7 @@ var currentPage = 0;
 		if(ID != "submit"){
 			saveAns(ID);
 		}else{
-			submit();
+			submit(inTime);
 		}
 	});
 //page-scroll for icon fa-angle-right
@@ -72,6 +73,8 @@ var currentPage = 0;
 			if(mm==0&&ss==1){
 				ss--;
 				alert("时间到！");
+				inTime = false;
+				submit(inTime);
 				$(".time").hide();
 			}
 			else{
