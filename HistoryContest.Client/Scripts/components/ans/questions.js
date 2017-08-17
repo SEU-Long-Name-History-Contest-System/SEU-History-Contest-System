@@ -84,7 +84,7 @@ exports.set = function(){
         content+='<section class="panel spotlight large right" ><div class="image  tinted" data-position="top left"><img src="/dist/Images/background'+(questionsIteratorIndex %9)+'.jpg" alt="" /></div></section>'
         }
         else{
-             content += '<div class="intro  joined"><ul class="actions"><li><a href="#submission" class="button  color1 circle icon fa-angle-right">Next</a></li></ul></div></div></section>'; 
+             content += '<div class="intro  joined"><ul class="actions"><li><a class="button  color1 circle icon fa-angle-right">Next</a></li></ul></div></div></section>'; 
         }
         
     }
@@ -97,7 +97,7 @@ var contentFooter='';
 exports.answerCard=function(){
     
     for(var i=0;i<init.questions.length+init.TFs.length;i++){
-        contentFooter +='<a href="#q'+(i+1)+'" id="question'+(i+1)+'" class="questionId">'+(i+1)+"</a>";
+        contentFooter +='<a id="question'+(i+1)+'" class="questionId">'+(i+1)+"</a>";
         
     }
     $("#answerCard").html(contentFooter);

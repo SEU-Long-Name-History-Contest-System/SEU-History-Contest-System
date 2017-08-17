@@ -6,26 +6,14 @@ var set = require('./questions.js').set;
 var answerCard = require('./questions.js').answerCard;
 var saveAns = require('./ans.js').saveAns;
 var submit=require('./ans.js').submit;
-
 require('../../../Images/banner.jpg');
 require('../../../Images/bg.jpg');
 require('../../../Images/overlay.png');
 require('../../../Images/pic01.jpg');
-require('../../../Images/background0.jpg');
-require('../../../Images/background1.jpg');
-require('../../../Images/background2.jpg');
-require('../../../Images/background3.jpg');
-require('../../../Images/background4.jpg');
-require('../../../Images/background5.jpg');
-require('../../../Images/background6.jpg');
-require('../../../Images/background7.jpg');
-require('../../../Images/background8.jpg');
-
-
 $(function(){
 var currentPage = 0;
 //saveAns(this)
-	$(document).on("click","input",function(id){
+	$(document).on("click","#wrapper input",function(id){
 		var ID = $(id.target).attr('id');
 		if(ID != "submit"){
 			saveAns(ID);
@@ -34,7 +22,7 @@ var currentPage = 0;
 		}
 	});
 //page-scroll for icon fa-angle-right
-	$(document).on("click",".fa-angle-right",function(e){
+	$(document).on("click","#wrapper a.fa-angle-right",function(e){
 		var v_id = $(e.target).attr('id'); 
 		if(v_id == "start"){
 			$('#wrapper').animate({
@@ -49,7 +37,7 @@ var currentPage = 0;
 		}
 	});
 //page-scroll for footer
-	$(document).on("click",".questionId",function(c){
+	$(document).on("click","#answerCard a.questionId",function(c){
 		var tgt = $(c.target).attr('id');
 		if(tgt.length == 9){
 			var tgtId = parseInt(tgt[8]);
@@ -73,15 +61,10 @@ var currentPage = 0;
 				currentPage++;	
 			}
 		}
-		console.log(currentPage);
-
 	});
-
-
 	var mm = 30;//分
 	var ss = 0;//秒
 	var timeState = false;//时间状态 默认为true 开启时间
-
 	/*实现计时器*/
 	
 	var time= setInterval(function () {
@@ -90,7 +73,6 @@ var currentPage = 0;
 				ss--;
 				alert("时间到！");
 				$(".time").hide();
-				
 			}
 			else{
 				var str = "";
@@ -98,8 +80,6 @@ var currentPage = 0;
 					--mm;
 					ss = 59;
 				}
-				
-				
 				str += mm < 10 ? "0" + mm : mm;
 				str += ":";
 				str += ss < 10 ? "0" + ss : ss;
@@ -111,7 +91,6 @@ var currentPage = 0;
 			$(".time").text(' ');
 		}
 	}, 1000);
-
 	var answerQues=[];//name,answer(id)
     set();//初始化
     answerCard();
@@ -121,15 +100,7 @@ var currentPage = 0;
 			timeState = true;
 		});
 	});
-		
 });
-
-new Vue({
-	el:"#ans",
-	data:{
-	}
-})
-
-export default{
+/*export default{
 //export default class AppComponent extends Vue {
-}
+}*/
