@@ -20,12 +20,12 @@ var inTime = require('./ans.ts').inTime;
 			$("#question"+ID).click();
 		},300);
 	}
-	exports.submit=function(){
+	exports.submit=function(inTime){
 		var tot = 0;
 		for(var i = 0; i<30; i++)
 			if(answerQues[i] == null) tot++;
 		if(tot!=0 && inTime)
-			alert("您还有未作答题目哦！");
+			alert("您还有"+tot+"题未作答题目哦!");
 		else {
 			alert("已提交！");
 		/*	$.ajax(

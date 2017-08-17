@@ -29,14 +29,8 @@ var init={'questions':[{'question':'南京高等师范学校继三所师范学�
 {'question':'三江师范时期的速成科学制是1年。','correctAnswer':2},
 {'question':'三江师范时期的速成科学制是1年。','correctAnswer':2},
 {'question':'三江师范时期的速成科学制是1年。','correctAnswer':2},
-{'question':'三江师范时期的速成科学制是1年。','correctAnswer':2}]
-
-
-};
-
-
-	
-       
+{'question':'三江师范时期的速成科学制是1年。','correctAnswer':2}
+]};
 var content = '',
     questionsIteratorIndex,
     answersIteratorIndex;
