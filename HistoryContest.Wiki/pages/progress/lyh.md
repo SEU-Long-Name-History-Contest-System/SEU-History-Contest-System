@@ -244,3 +244,217 @@ var init={
 1. 选择题answer的0~3分别对应ABCD四个选项
 2. 判断题的0对应正确，1对应错误（有点奇怪？emm...没毛病）
 3. 这里的questionX为占位符，之后会换为题目id
+
+# 8月12日
+
+## 后台页
+
+### 没错，我又用了一个模板，可以实现的功能：
+
+#### 成绩统计
+
+1. 学院学生答题情况饼图
+
+   底部显示多少人已经作答，多少人未作答
+
+2. 成绩分布情况饼图
+
+   底部显示平均分
+
+3. 学院未答题学生名单
+
+   这张表展示学号、姓名与一卡通号
+
+4. 学院已答题学生成绩单
+
+   这张表展示学号、姓名、一卡通号与成绩
+
+#### 院系概览
+
+ 	该页面用于学院与学院间的比较，具体内容如何展现还需讨论
+
+#### 用户体验
+
+​	进入系统时，会弹出一个通知对辅导员进行“亲切”问候
+
+#### 这个网页不是动态的
+
+​	所有的表格目前还是手动输入，也许应该开始学习一下Webpack/Typescript/Vue.js，这样才能听懂大佬们在说什么啊
+
+# 8月18日
+
+## 结果页
+
+###新增：成绩查看
+
+### 新增：答题情况查看
+
+- 用户可以看到哪些题正确，哪些题错误
+- 查看原题：鼠标移到题号上时，可以看到原题，并且区分出正确答案和用户选择的答案
+
+## 后台页
+
+### 新增：动态，动态，我们要动态！
+
+- 学院未答题学生名单现在是动态生成的了
+- 学院已答题学生成绩单现在是动态生成的了
+- 协商好接口后，即将进一步实现动态生成的内容：
+  - 辅导员姓名
+  - 学院成绩分布情况
+  - 饼图
+- 网页顶部导航预留了一个“刷新”按钮，用于执行异步请求
+
+### 新增：搜索
+
+- 两张表格都有搜索功能了
+- 搜索框监听用户输入，所输即所得
+- 学号、姓名、一卡通和成绩均可搜素
+- 不支持模糊搜索
+
+### 新增：排序
+
+- 成绩可以在“升序”、“降序”、“原始”状态中切换
+- 原始状态即按照学号排列的状态
+
+## 目前已支持的API：
+
+### 答题页取题
+
+```json
+{
+    'questions':[
+        {'question':'南京高等师范学校继三所师范学校成为我国成立的最早的第四所国立高等师范学校，其中不是这三所学校之一的是：','answers':['武昌高师','北京高师','长沙高师','广州高师']},
+        {'question':'江谦认为国家的富强有赖于科学、实业的发达，先后增设了三个专修科，其中哪一个不属于这三科之一？','answers':['农业','工业','商业','教育业']},
+        {'question':'下面哪一项不属于郭秉文的“自动主义”？','answers':['学习上的自学和自力研究','思想上的自律和自强','生活上的自立和自理','学术、文化、体育活动的自行组织和主办']},
+        {'question':'下面哪一项不是南京高等师范学院办学者的宗旨（南京高等师范学院教育的特色）？','answers':['倡导学生的爱国精神，为国家培养科学人才','调和文理，沟通中西，积极引进国外的先进科学技术','用科学的精神办教育，用科学的方法育才','促进教育、科学的共同发展，促进科学人才的成长和脱颖而出']},
+        {'question':'我是问题','answers':['我是答案','我是选项','我是选项','我是选项']},
+        {'question':'我是问题','answers':['我是答案','我是选项','我是选项','我是选项']},
+        {'question':'我是问题','answers':['我是答案','我是选项','我是选项','我是选项']},
+        {'question':'我是问题','answers':['我是答案','我是选项','我是选项','我是选项']},
+        {'question':'我是问题','answers':['我是答案','我是选项','我是选项','我是选项']},
+        {'question':'我是问题','answers':['我是答案','我是选项','我是选项','我是选项']},
+        {'question':'我是问题','answers':['我是答案','我是选项','我是选项','我是选项']},
+        {'question':'我是问题','answers':['我是答案','我是选项','我是选项','我是选项']},
+        {'question':'我是问题','answers':['我是答案','我是选项','我是选项','我是选项']},
+        {'question':'我是问题','answers':['我是答案','我是选项','我是选项','我是选项']},
+        {'question':'我是问题','answers':['我是答案','我是选项','我是选项','我是选项']},
+        {'question':'我是问题','answers':['我是答案','我是选项','我是选项','我是选项']},
+        {'question':'我是问题','answers':['我是答案','我是选项','我是选项','我是选项']},
+        {'question':'我是问题','answers':['我是答案','我是选项','我是选项','我是选项']},
+        {'question':'我是问题','answers':['我是答案','我是选项','我是选项','我是选项']},
+        {'question':'我是问题','answers':['我是答案','我是选项','我是选项','我是选项']}
+    ],
+    'TFs':[
+            {'question':'三江师范时期的速成科学制是1年。'},
+            {'question':'三江师范时期的速成科学制是1年。'},
+            {'question':'三江师范时期的速成科学制是1年。'},
+            {'question':'三江师范时期的速成科学制是1年。'},
+            {'question':'三江师范时期的速成科学制是1年。'},
+            {'question':'三江师范时期的速成科学制是1年。'},
+            {'question':'三江师范时期的速成科学制是1年。'},
+            {'question':'三江师范时期的速成科学制是1年。'},
+            {'question':'三江师范时期的速成科学制是1年。'},
+            {'question':'三江师范时期的速成科学制是1年。'}
+        ]
+};
+```
+
+注意：
+
+1. 与之前的版本相比，去掉了`correctAnswer`的键值
+2. 与当前后端API不同，这里多选题的key仍然是`questions`，等待胡大佬调整即可
+3. **当前版本还没有传入每道题的十六进制码（话说现在还有没有这个东西了？）**
+
+### 结果页得分信息
+
+```json
+{   
+    "score":80,
+    "details":[
+        {"ID":0,"rightAnswer":1,"submittedAnswer":1,"isCorrect":true},
+        {"ID":1,"rightAnswer":1,"submittedAnswer":0,"isCorrect":false},
+        {"ID":2,"rightAnswer":1,"submittedAnswer":2,"isCorrect":false},
+        {"ID":3,"rightAnswer":1,"submittedAnswer":1,"isCorrect":true},
+        {"ID":4,"rightAnswer":1,"submittedAnswer":0,"isCorrect":false},
+        {"ID":5,"rightAnswer":1,"submittedAnswer":2,"isCorrect":false},
+        {"ID":6,"rightAnswer":1,"submittedAnswer":1,"isCorrect":true},
+        {"ID":7,"rightAnswer":1,"submittedAnswer":0,"isCorrect":false},
+        {"ID":8,"rightAnswer":1,"submittedAnswer":2,"isCorrect":false},
+        {"ID":9,"rightAnswer":1,"submittedAnswer":1,"isCorrect":true},
+        {"ID":10,"rightAnswer":1,"submittedAnswer":0,"isCorrect":false},
+        {"ID":11,"rightAnswer":1,"submittedAnswer":2,"isCorrect":false},
+        {"ID":12,"rightAnswer":1,"submittedAnswer":1,"isCorrect":true},
+        {"ID":13,"rightAnswer":1,"submittedAnswer":0,"isCorrect":false},
+        {"ID":14,"rightAnswer":1,"submittedAnswer":2,"isCorrect":false},
+        {"ID":15,"rightAnswer":1,"submittedAnswer":1,"isCorrect":true},
+        {"ID":16,"rightAnswer":1,"submittedAnswer":0,"isCorrect":false},
+        {"ID":17,"rightAnswer":1,"submittedAnswer":2,"isCorrect":false},
+        {"ID":18,"rightAnswer":1,"submittedAnswer":0,"isCorrect":false},
+        {"ID":19,"rightAnswer":1,"submittedAnswer":2,"isCorrect":false},
+        {"ID":20,"rightAnswer":1,"submittedAnswer":1,"isCorrect":true},
+        {"ID":21,"rightAnswer":1,"submittedAnswer":0,"isCorrect":false},
+        {"ID":22,"rightAnswer":1,"submittedAnswer":1,"isCorrect":true},
+        {"ID":23,"rightAnswer":1,"submittedAnswer":0,"isCorrect":false},
+        {"ID":24,"rightAnswer":1,"submittedAnswer":1,"isCorrect":true},
+        {"ID":25,"rightAnswer":1,"submittedAnswer":0,"isCorrect":false},
+        {"ID":26,"rightAnswer":1,"submittedAnswer":1,"isCorrect":true},
+        {"ID":27,"rightAnswer":1,"submittedAnswer":0,"isCorrect":false},
+        {"ID":28,"rightAnswer":1,"submittedAnswer":1,"isCorrect":true},
+        {"ID":29,"rightAnswer":1,"submittedAnswer":0,"isCorrect":false}
+    ]
+}
+```
+
+注意：
+
+1. 根据杨大佬的日志，这里的ID为题号，代表题目顺序
+2. 对于多选题，0123对应ABCD，对于判断题，0对应正确，1对应错误
+
+###提交答案
+
+```json
+[{"name":"question1","answer":"0"},{"name":"question2","answer":"1"},{"name":"question3","answer":"2"},{"name":"question4","answer":"3"}]
+```
+
+注意：
+
+1. 答案约定同上
+
+2. 这里的name，按照设想，若有十六进制码，则值就为hex code；
+
+   若没有，则为题目序号，提交的顺序也许是乱序的，这取决于用户的答题顺序
+
+3. 细心的你也许会发现，这个答案是数组，而不是标准的json格式，提交的时候需要更改一下
+
+   （没关系，毕竟现在并没有写真正的提交语句），完善后的答案也许是这样的：
+
+   ``` json
+   {"answers":[
+     {"name":"question1","answer":"0"},{"name":"question2","answer":"1"} 
+     {"name":"question3","answer":"2"},{"name":"question4","answer":"3"}
+   ]}
+   ```
+
+### 后台院系统计表信息
+
+``` json
+{
+    'students':[
+        {"ID":"09016435","Name":"杨航源","CardID":"213161269"},
+        {"ID":"09016423","Name":"陈启宣","CardID":"213161299"},
+        {"ID":"09016414","Name":"罗崟洪","CardID":"213163210"}
+    ]
+};
+{
+    'students':[
+        {"ID":"09016435","Name":"杨航源","Score":60,"CardID":"213161269"},
+        {"ID":"09016423","Name":"陈启宣","Score":100,"CardID":"213161299"},
+        {"ID":"09016414","Name":"罗崟洪","Score":0,"CardID":"213163210"}
+        ]
+};
+```
+
+注意：
+
+1. 按照设想，一张表对应一个json，这对于前端是有利的
+2. 实际上，服务器返回的只有一个json，因此需要先对返回的json进行处理，才能得到这两个json数据，这将是今后要完善的
