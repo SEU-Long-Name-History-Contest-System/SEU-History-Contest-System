@@ -3,89 +3,65 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using HistoryContest.Server.Models;
 using HistoryContest.Server.Models.Entities;
 
 namespace HistoryContest.Server.Data.Repositories
 {
     public class StudentRepository : GenericRepository<Student>
     {
-        internal ContestContext _context;
+        internal DbSet<Counselor> counselorSet;
 
         public StudentRepository(ContestContext context) : base(context)
         {
-            _context = context;
+            counselorSet = context.Set<Counselor>();
         }
 
-        IEnumerable<Student> GetByDepartment(Department departmentID)
+        public void LoadStudentsFromCounselors()
         {
-            var Students = from m in _context.Students
-                           select m;
-            Students = Students.Where(m => m.Counselor.Department==departmentID);
-            return new List<Student>(Students);
+            counselorSet.Include(c => c.Students);
+            //counselorSet.Load();
         }
 
-        public double AverageScore()
+        public async Task<ICollection<Student>> GetByDepartment(Department departmentID)
         {
-            var Students = _context.Students.Where(m => m.IsTested);
-            int total = 0, sum = 0;
-            foreach(Student m in Students)
-            {
-                    sum++;
-                    total += m.Score;
-            }
-            double average = (double)total / sum;
-            return average;
+            var a = (await counselorSet.FirstOrDefaultAsync(c => c.Department == departmentID));
+            return a.Students;
         }
 
-        public double HighestScore()
+        public async Task<int> SizeByDepartment(Department departmentID)
         {
-            var Students = _context.Students.Where(m => m.IsTested);
-            int maximum = 0;
-            foreach (Student m in Students)
-                if (maximum<m.Score)
-                {
-                    maximum = m.Score;
-                }
-            return maximum;
+            return (await GetByDepartment(departmentID)).Count;
         }
 
-        public int ScoreHigherThan(double bandScore)
+        public async Task<double> AverageScore()
         {
-            var Students = _context.Students.Where(m => m.IsTested);
-            int num = Students.Count(m => m.Score>=bandScore);
-            return num;
+            return await dbSet.Select(s => (int)s.Score).AverageAsync();
         }
 
-        public double AverageScoreByDepartment(Department departmentID)
+        public async Task<int> HighestScore()
         {
-            var Students = _context.Students.Where(m => (m.IsTested&&m.Counselor.Department==departmentID));
-            int total = 0, sum = 0;
-            foreach (Student m in Students)
-            {
-                sum++;
-                total += m.Score;
-            }
-            double average = (double)total / sum;
-            return average;
+            return await dbSet.Select(s => (int)s.Score).MaxAsync();
         }
 
-        public double HighestScoreByDepartment(Department departmentID)
+        public async Task<int> ScoreHigherThan(double bandScore)
         {
-            var Students = _context.Students.Where(m => (m.IsTested && m.Counselor.Department == departmentID));
-            int maximum = 0;
-            foreach (Student m in Students)
-                if (maximum < m.Score)
-                {
-                    maximum = m.Score;
-                }
-            return maximum;
+            return await dbSet.CountAsync(s => s.IsTested && s.Score >= bandScore);
         }
 
-        int ScoreHigherThanByDepartment(double bandScore, Department departmentID)
+        public async Task<double> AverageScoreByDepartment(Department departmentID)
         {
-            var Students = _context.Students.Where(m => (m.IsTested && m.Counselor.Department == departmentID));
-            int num = Students.Count(m => m.Score >= bandScore);
-            return num;
+            return await (await GetByDepartment(departmentID)).AsQueryable().Select(s => (int)s.Score).AverageAsync();
+        }
+
+        public async Task<int> HighestScoreByDepartment(Department departmentID)
+        {
+            return await (await GetByDepartment(departmentID)).AsQueryable().Select(s => (int)s.Score).MaxAsync();
+        }
+
+        public async Task<int> ScoreHigherThanByDepartment(double bandScore, Department departmentID)
+        {
+            return await(await GetByDepartment(departmentID)).AsQueryable().CountAsync(s => s.IsTested && s.Score >= bandScore);
         }
     }
 }

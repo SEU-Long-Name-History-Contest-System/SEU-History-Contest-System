@@ -14,9 +14,11 @@ namespace HistoryContest.Server.Data
 
         }
 
+        // TODO: 修复administrator object已存在与不能读取related data的bug
         #region Entity Sets
         public DbSet<Student> Students { get; set; }
         public DbSet<Counselor> Counselors { get; set; }
+        public DbSet<Administrator> Administrators { get; set; }
         public DbSet<ChoiceQuestion> ChoiceQuestions { get; set; }
         public DbSet<TrueFalseQuestion> TrueFalseQuestions { get; set; }
         public DbSet<AQuestionBase> Questions { get; set; }
@@ -28,6 +30,8 @@ namespace HistoryContest.Server.Data
             modelBuilder.Entity<QuestionSeed>()
                 .Property(s => s._questionIDs).HasColumnName("QuestionIDs");
 
+            modelBuilder.Entity<Counselor>()
+                .HasIndex(c => c.Department);
         }
     }
 }

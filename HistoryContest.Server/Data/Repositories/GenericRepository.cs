@@ -19,6 +19,12 @@ namespace HistoryContest.Server.Data.Repositories
             dbSet = context.Set<TEntity>();
         }
 
+        #region Synchronous Methods
+        public int Size()
+        {
+            return dbSet.Count();
+        }
+
         public virtual IEnumerable<TEntity> Get(
             Expression<Func<TEntity, bool> > filter = null,
             Func<IQueryable<TEntity>, IOrderedQueryable<TEntity> > orderBy = null,
@@ -82,6 +88,13 @@ namespace HistoryContest.Server.Data.Repositories
             dbSet.Attach(entityToUpdate);
             context.Entry(entityToUpdate).State = EntityState.Modified;
         }
+        #endregion
+
+        #region Asynchronous Methods
+        public async Task<int> SizeAsync()
+        {
+            return await dbSet.CountAsync();
+        }
 
         public async virtual Task<IEnumerable<TEntity>> GetAsync(
             Expression<Func<TEntity, bool>> filter = null,
@@ -131,5 +144,6 @@ namespace HistoryContest.Server.Data.Repositories
             TEntity entityToDelete = await dbSet.FindAsync(id);
             Delete(entityToDelete);
         }
+        #endregion
     }
 }

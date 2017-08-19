@@ -5,8 +5,10 @@ using System.Threading.Tasks;
 
 namespace HistoryContest.Server.Models.ViewModels
 {
-    interface IQuestionViewModelBase
+    public class AnswerViewModel
     {
-        Guid HashKey { get; set; }
+        public int ID { get; set; }
+        public int Answer { get; set; }
+        public int? Points { get; set; }
     }
 }

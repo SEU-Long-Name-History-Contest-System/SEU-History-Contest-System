@@ -35,8 +35,9 @@ Azure管理中心:https://portal.azure.com
 
 * 后端
 
-  1. [ASP.NET Core MVC](https://docs.microsoft.com/en-us/aspnet/core/tutorials/)
+  1. [ASP.NET Core 2.0](https://docs.microsoft.com/en-us/aspnet/core/tutorials/)
      * [Web API](https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-web-api)
+     * [MVC](https://docs.microsoft.com/en-us/aspnet/core/mvc/overview)
      * [StaticFiles Middleware](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/static-files)
      * [Routing Middleware](https://docs.microsoft.com/en-us/aspnet/core/mvc/controllers/routing)
   2. [Entity Framework Core](https://docs.microsoft.com/zh-cn/ef/core/)

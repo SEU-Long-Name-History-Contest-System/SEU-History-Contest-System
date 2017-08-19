@@ -1,37 +1,47 @@
 ﻿<Project ToolsVersion="15.0" Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
-    <TargetFramework>netcoreapp1.1</TargetFramework>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
     <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
     <IsPackable>false</IsPackable>
-    <PackageTargetFallback>portable-net45+win8</PackageTargetFallback>
+    <AssetTargetFallback>$(AssetTargetFallback);portable-net45+win8+wp8+wpa81;</AssetTargetFallback>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>bin\Debug\netcoreapp1.1\HistoryContest.Server.xml</DocumentationFile>
+    <DocumentationFile>bin\Debug\$(TargetFramework)\HistoryContest.Server.xml</DocumentationFile>
     <NoWarn>1701;1702;1705;1591</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DocumentationFile>bin\Release\netcoreapp1.1\HistoryContest.Server.xml</DocumentationFile>
+    <DocumentationFile>bin\Release\$(TargetFramework)\HistoryContest.Server.xml</DocumentationFile>
     <NoWarn>1701;1702;1705;1591</NoWarn>
   </PropertyGroup>
+  <Choose>
+    <When Condition="'$(TargetFramework)' == 'netcoreapp1.1'">
+      <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore" Version="1.1.2" />
+        <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="1.1.2" />
+        <PackageReference Include="Microsoft.AspNetCore.SpaServices" Version="1.1.1" />
+        <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="1.1.2" />
+        <PackageReference Include="Microsoft.AspNetCore.Authentication" Version="1.1.1" />
+        <PackageReference Include="Microsoft.AspNetCore.Authentication.Cookies" Version="1.1.1" />
+        <PackageReference Include="Microsoft.AspNetCore.Session" Version="1.1.2" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="1.1.2" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="1.1.2" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="1.1.2" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer.Design" Version="1.1.2" />
+        <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="1.1.2" />
+        <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="1.1.2" />
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="1.0.0" />
+      </ItemGroup>
+    </When>
+    <When Condition="'$(TargetFramework)' == 'netcoreapp2.0'">
+      <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="1.0.0" />
+      </ItemGroup>
+    </When>
+  </Choose>
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore" Version="1.1.2" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="1.1.3" />
-    <PackageReference Include="Microsoft.AspNetCore.SpaServices" Version="1.1.1" />
-    <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="1.1.2" />
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.Cookies" Version="1.1.2" />
-    <PackageReference Include="Microsoft.AspNetCore.Session" Version="1.1.2" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="1.1.2" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="1.1.2" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="1.1.2" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer.Design" Version="1.1.2" />
-    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="1.1.2" />
-    <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="1.1.2" />
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="1.1.1" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="1.0.0" />
-  </ItemGroup>
-  <ItemGroup>
-    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="1.0.0-msbuild3-final" />
-    <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="1.0.0" />
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />
+    <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.0.0" />
   </ItemGroup>
   <ItemGroup>
     <!-- Files not to show in IDE -->
@@ -44,7 +54,6 @@
   <Target Name="RunWebpack" AfterTargets="ComputeFilesToPublish">
     <!-- As part of publishing, ensure the JS resources are freshly built in production mode -->
     <Exec Command="webpack_build.bat" WorkingDirectory="../HistoryContest.Client/" />
-
     <!-- Include the newly-built files in the publish output -->
     <ItemGroup>
       <DistFiles Include="..\wwwroot\**" />
@@ -63,10 +72,11 @@
         <RelativePath>HistoryContest.Wiki/%(RecursiveDir)%(Filename)%(Extension)</RelativePath>
         <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       </ResolvedFileToPublish>
-      <ResolvedFileToPublish Include=".\bin\Release\netcoreapp1.1\HistoryContest.Server.xml">
+      <ResolvedFileToPublish Include=".\bin\Release\$(TargetFramework)\HistoryContest.Server.xml">
         <RelativePath>HistoryContest.Server.xml</RelativePath>
         <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       </ResolvedFileToPublish>
     </ItemGroup>
   </Target>
+  <ProjectExtensions><VisualStudio><UserProperties global_1json__JSONSchema="" /></VisualStudio></ProjectExtensions>
 </Project>

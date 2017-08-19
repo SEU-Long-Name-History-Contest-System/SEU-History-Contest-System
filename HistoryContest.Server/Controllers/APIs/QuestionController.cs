@@ -4,9 +4,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using HistoryContest.Server.Models.Entities;
 using HistoryContest.Server.Models.ViewModels;
 using HistoryContest.Server.Data;
+using HistoryContest.Server.Services;
 
 namespace HistoryContest.Server.Controllers.APIs
 {
@@ -15,83 +17,55 @@ namespace HistoryContest.Server.Controllers.APIs
     [Route("api/[controller]")]
     public class QuestionController : Controller
     {
-        private readonly UnitOfWork _unitofwork;
+        private readonly UnitOfWork unitOfWork;
+        private readonly QuestionSeedService questionSeedService;
 
-        public QuestionController(UnitOfWork unitofwork)
+        public QuestionController(UnitOfWork unitOfWork)
         {
-            _unitofwork = unitofwork;
+            this.unitOfWork = unitOfWork;
+            questionSeedService = new QuestionSeedService(unitOfWork);
         }
 
-        // GET: api/Question
         [HttpGet]
-        public IEnumerable<AQuestionBase> GetQuestionSet()
+        public async Task<IActionResult> GetQuestionSet()
         {
-            return new List<AQuestionBase>();
+            var seed = HttpContext.Session.GetInt32("seed");
+            if (seed == null)
+            {
+                return BadRequest("Question seed not created");
+            }
+            
+            var source = await questionSeedService.GetQuestionsBySeedID((int)seed);
+            if (source == null)
+            {
+                throw new Exception("Improper seed created, ID: " + seed);
+            }
+
+            return Json(source.Select(q => (QuestionViewModel)q));
         }
 
-        // GET: api/Question/5
         [HttpGet("{id}")]
-        public IActionResult GetQuestionById(long id)
+        public async Task<IActionResult> GetQuestionById(int id)
         {
-            var item = _unitofwork.context.Questions.FirstOrDefault(t => t.ID == id);
+            var item = await unitOfWork.QuestionRepository.GetByIDAsync(id);
             if (item == null)
             {
                 return NotFound();
             }
-            return new ObjectResult(item);
+
+            return Json((QuestionViewModel)item);
         }
 
-        // POST: api/Question
         [HttpPost]
-        public IActionResult Post([FromBody]AQuestionBase item)
+        public async Task<IActionResult> GetQuestionIDSet()
         {
-            if (item == null)
+            var seed = HttpContext.Session.GetInt32("seed");
+            if (seed == null)
             {
-                return BadRequest();
+                return BadRequest("Question seed not created");
             }
 
-            _unitofwork.context.Questions.Add(item);
-            _unitofwork.context.SaveChanges();
-
-            return CreatedAtRoute("GetTodo", new { id = item.ID }, item);
-        }
-
-        // PUT: api/Question/5
-        [HttpPut("{id}")]
-        public IActionResult Put(long id, [FromBody]AQuestionBase item)
-        {
-            if (item == null || item.ID != id)
-            {
-                return BadRequest();
-            }
-
-            var todo = _unitofwork.context.Questions.FirstOrDefault(t => t.ID == id);
-            if (todo == null)
-            {
-                return NotFound();
-            }
-
-            todo.Answer = item.Answer;
-            todo.Points = item.Points;
-            todo.Question = item.Question;
-
-            _unitofwork.context.Questions.Update(todo);
-            _unitofwork.context.SaveChanges();
-            return new NoContentResult();
-        }
-
-        // DELETE: api/Question/5
-        [HttpDelete("{id}")]
-        public IActionResult DeleteSeed(long id)
-        {
-            var questionseeds = _unitofwork.context.QuestionSeeds.FirstOrDefault(t => t.ID == id);
-            if (questionseeds == null)
-            {
-                return NotFound();
-            }
-            _unitofwork.context.QuestionSeeds.Remove(questionseeds);
-            _unitofwork.context.SaveChanges();
-            return new NoContentResult();
+            return Json((await unitOfWork.QuestionSeedRepository.GetByIDAsync(seed)).QuestionIDs);
         }
     }
 }

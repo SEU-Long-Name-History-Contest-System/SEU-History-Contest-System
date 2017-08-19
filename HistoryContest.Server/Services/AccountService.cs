@@ -33,7 +33,7 @@ namespace HistoryContest.Server.Services
             /*下面的方法重复写是为了看得清楚，若种类变多的话，可改为泛型*/
 
             IUserBase user;
-            if(false && (user = await GetUser<Administrator>(userName))!= null && user.CheckPassword(password))
+            if((user = await GetUser<Administrator>(userName))!= null && user.CheckPassword(password))
             { // Check Administrators
                 userViewModel = new UserViewModel { UserName = userName, RealName = user.Name, Role = "Administrator" };
                 userClaims.Add(new Claim(ClaimTypes.Role, userViewModel.Role));
@@ -71,7 +71,7 @@ namespace HistoryContest.Server.Services
         {
             if(typeof(TUser) == typeof(Administrator))
             {
-                return await unitOfWork.context.Set<Administrator>().FirstOrDefaultAsync(user => user.UserName == userName);
+                return await unitOfWork.AdminRepository.FirstOrDefaultAsync(user => user.UserName == userName);
             }
             else if (typeof(TUser) == typeof(Student) || typeof(TUser) == typeof(Counselor))
             {

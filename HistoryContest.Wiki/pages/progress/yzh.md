@@ -422,4 +422,21 @@
 
 * 添加时间相关API
 
-* 待添加管理员页面：查看log、wiki、api文档、直接查看并修改原始数据库
+* 待添加管理员页面：查看log、wiki、api文档、直接查看并修改原始数据库、解析doc
+
+## 8.17
+
+* 后端从.Net Core 1.1 迁移至 2.0：
+
+  安装好SDK与Runtime后，需要将global.json的sdk版本修改至2.0：
+
+  `"sdk": {"version": "2.0.0-preview3-006912"}`
+
+  这是解决方案依赖的东西。
+
+* 修改包依赖：
+
+  2.0版本，可以使用一个MetaPackage解决问题：
+
+  `<PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />`
+

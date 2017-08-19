@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using HistoryContest.Server.Models.Entities;
 
 namespace HistoryContest.Server.Models.ViewModels
 {

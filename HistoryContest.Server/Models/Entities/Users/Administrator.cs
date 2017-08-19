@@ -15,6 +15,15 @@ namespace HistoryContest.Server.Models.Entities
         public string HashedPassword { get; set; }
         public string Salt { get; set; }
 
+        public string Password
+        {
+            set
+            {
+                Salt = EncryptionService.CreateSalt();
+                HashedPassword = EncryptionService.EncryptPassword(value, Salt);
+            }
+        }
+
         public bool CheckPassword(string password)
         {
             return EncryptionService.EncryptPassword(password, Salt) == HashedPassword;

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.EntityFrameworkCore;
 
 namespace HistoryContest.Server.Models.Entities
 {
@@ -12,11 +13,10 @@ namespace HistoryContest.Server.Models.Entities
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int ID { get; set; }
         public string Name { get; set; }
-        //[Phone]
         public int PhoneNumber { get; set; }
-        public Department? Department { get; set; }
+        public Department Department { get; set; }
 
-        public ICollection<Student> Students { get; set; }
+        public List<Student> Students { get; set; }
 
         public bool CheckPassword(string password)
         {

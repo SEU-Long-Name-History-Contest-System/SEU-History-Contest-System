@@ -5,7 +5,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 
-
 namespace HistoryContest.Server
 {
     public class Program
@@ -16,7 +15,20 @@ namespace HistoryContest.Server
         {
             FromMain = true;
 
-            var host = new WebHostBuilder()
+            var host = BuildWebHost(args);
+
+            if (args.Length > 0 && (args[0] == "/runbrowser" || args[0] == "/rb"))
+            {
+                string url = @"http://localhost:5000";
+                Console.WriteLine(@"Starting " + url + " with default browser...");
+                System.Diagnostics.Process.Start("explorer", url);
+            }
+
+            host.Run();
+        }
+
+        public static IWebHost BuildWebHost(string[] args) =>
+            new WebHostBuilder()
                 .UseKestrel()
 #if DEBUG
                 .UseContentRoot(Directory.GetParent(Directory.GetCurrentDirectory()).FullName)
@@ -26,17 +38,5 @@ namespace HistoryContest.Server
                 .UseIISIntegration()
                 .UseStartup<Startup>()
                 .Build();
-
-#if DEBUG
-            if (args.Length > 0 && (args[0] == "/runbrowser" || args[0] == "/rb"))
-            {
-                string url = @"http://localhost:5000";
-                Console.WriteLine(@"Starting " + url + " with default browser...");
-                System.Diagnostics.Process.Start("explorer", url);
-            }
-#endif
-
-            host.Run();
-        }
     }
 }

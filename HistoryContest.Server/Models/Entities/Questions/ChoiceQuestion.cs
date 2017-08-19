@@ -7,14 +7,19 @@ namespace HistoryContest.Server.Models.Entities
 {
     public class ChoiceQuestion : AQuestionBase
     {
-        string ChoiceA { get; set; }
-        string ChoiceB { get; set; }
-        string ChoiceC { get; set; }
-        string ChoiceD { get; set; }
+        public string ChoiceA { get; set; }
+        public string ChoiceB { get; set; }
+        public string ChoiceC { get; set; }
+        public string ChoiceD { get; set; }
 
         public ChoiceQuestion()
         {
             Points = 4;
+        }
+
+        public string[] AllChoices
+        {
+            get { return new string[] { ChoiceA, ChoiceB, ChoiceC, ChoiceD }; }
         }
     }
 }

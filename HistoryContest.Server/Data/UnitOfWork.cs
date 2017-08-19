@@ -8,41 +8,47 @@ namespace HistoryContest.Server.Data
     public class UnitOfWork : IDisposable
     {
         public ContestContext context;
-        private StudentRepository studentRepository;
-        private GenericRepository<Counselor> counselorRepository;
-        private GenericRepository<Administrator> adminRepository;
-        private QuestionSeedRepository questionSeedRepository;
+        public StudentRepository StudentRepository { get; set; }
+        public GenericRepository<Counselor> CounselorRepository { get; set; }
+        public GenericRepository<Administrator> AdminRepository { get; set; }
+        public QuestionRepository QuestionRepository { get; set; }
+        public GenericRepository<QuestionSeed> QuestionSeedRepository { get; set; }
         
         public UnitOfWork(ContestContext context)
         {
             this.context = context;
+            StudentRepository = new StudentRepository(context);
+            CounselorRepository = new GenericRepository<Counselor>(context);
+            AdminRepository = new GenericRepository<Administrator>(context);
+            QuestionRepository = new QuestionRepository(context);
+            QuestionSeedRepository = new GenericRepository<QuestionSeed>(context);
         }
 
-        #region Repository Properties
-        public StudentRepository StudentRepository
-        {
-            get { return studentRepository ?? (studentRepository = new StudentRepository(context)); }
-            set { studentRepository = value; }
-        }
+        //#region Repository Properties
+        //public StudentRepository StudentRepository
+        //{
+        //    get { return studentRepository ?? (studentRepository = new StudentRepository(context)); }
+        //    set { studentRepository = value; }
+        //}
 
-        public GenericRepository<Counselor> CounselorRepository
-        {
-            get { return counselorRepository ?? (counselorRepository = new GenericRepository<Counselor>(context)); }
-            set { counselorRepository = value; }
-        }
+        //public GenericRepository<Counselor> CounselorRepository
+        //{
+        //    get { return counselorRepository ?? (counselorRepository = new GenericRepository<Counselor>(context)); }
+        //    set { counselorRepository = value; }
+        //}
 
-        public GenericRepository<Administrator> AdminRepository
-        {
-            get { return adminRepository ?? (adminRepository = new GenericRepository<Administrator>(context)); }
-            set { adminRepository = value; }
-        }
+        //public GenericRepository<Administrator> AdminRepository
+        //{
+        //    get { return adminRepository ?? (adminRepository = new GenericRepository<Administrator>(context)); }
+        //    set { adminRepository = value; }
+        //}
 
-        public QuestionSeedRepository QuestionSeedRepository
-        {
-            get { return questionSeedRepository ?? (questionSeedRepository = new QuestionSeedRepository(context)); }
-            set { questionSeedRepository = value; }
-        }
-        #endregion
+        //public QuestionSeedRepository QuestionSeedRepository
+        //{
+        //    get { return questionSeedRepository ?? (questionSeedRepository = new QuestionSeedRepository(context)); }
+        //    set { questionSeedRepository = value; }
+        //}
+        //#endregion
 
         public int Save()
         {

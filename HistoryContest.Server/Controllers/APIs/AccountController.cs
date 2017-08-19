@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using HistoryContest.Server.Services;
 using HistoryContest.Server.Models.ViewModels;
@@ -29,14 +30,18 @@ namespace HistoryContest.Server.Controllers.APIs
         {
             if(!ModelState.IsValid)
             {
-                return BadRequest();
+                return BadRequest("Body JSON content invalid");
             }
 
             var userContext = await accountService.ValidateUser(model.UserName, model.Password);
             if (userContext.User != null)
             {
                 var principal = new ClaimsPrincipal(new ClaimsIdentity(userContext.Claims, accountService.GetType().Name));
-                await HttpContext.Authentication.SignInAsync("HistoryContest", principal);
+#if NETCOREAPP2_0
+                await HttpContext.SignInAsync(principal);
+#else
+                await HttpContext.Authentication.SignInAsync(Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationDefaults.AuthenticationScheme, principal);
+#endif
                 HttpContext.Session.SetString("id", userContext.User.UserName);
                 return Json(new { isSuccessful = true, userContext.User });
             }
@@ -69,9 +74,8 @@ namespace HistoryContest.Server.Controllers.APIs
         [HttpPost("[action]")]
         public IActionResult Logout()
         {
-            var a = HttpContext.Session.GetInt32("id");
             HttpContext.Session.Clear();
-            return SignOut("HistoryContest");
+            return SignOut();
         }
     }
 }
