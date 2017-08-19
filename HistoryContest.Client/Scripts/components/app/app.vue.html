@@ -1,8 +1,7 @@
 <template>
-    <div class = "backgrounds">
-        <img src = "/dist/Images/background8.jpg" class = "bg">
-        <div id='app-root' style="height:100%"  class = "inside container-fluid">
-            <login-component />
+    <div class = "backgrounds" id = "app-root">
+           <!-- <lgin-component />-->
+            <ans-component />
         <!-- class="container-fluid" >-->
         <!--
             <div class="row">
@@ -17,5 +16,14 @@
         </div>
     </div>
 </template>
-<style src = "./app.css"></style>
 <script src="./app.ts"></script>
+<style>
+    .backgrounds {
+    position: fixed;
+    background-position: center;
+    top: 0; 
+    left: 0;
+	right:0;
+	bottom:0;
+}
+</style>

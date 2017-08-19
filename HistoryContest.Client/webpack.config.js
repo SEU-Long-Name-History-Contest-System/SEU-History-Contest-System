@@ -12,14 +12,14 @@ module.exports = (env) => {
         stats: { modules: false },
         context: __dirname,
         resolve: { extensions: [ '.js', '.ts' ] },
-        entry: { 'main': './Scripts/boot.ts' },
+        entry: { 'main': './Scripts/boot.ts' },//入口文件
         module: {
             rules: [
                 { test: /\.vue\.html$/, include: /Scripts/, loader: 'vue-loader', options: { loaders: { js: 'awesome-typescript-loader?silent=true' } } },
                 { test: /\.ts$/, include: /Scripts/, use: 'awesome-typescript-loader?silent=true' },
-                { test: /\.css$/, use: isDevBuild ? [ 'style-loader', 'css-loader' ] : ExtractTextPlugin.extract({ use: 'css-loader?minimize' }) },
-                { test: /\.(png|jpg|jpeg|gif|svg)$/, loader: 'url-loader?limit=8192&name=Images/[name].[ext]'},
-                {test: /\.(woff|woff2|svg|eot|ttf)$/, loader: 'file-loader?name=./Fonts/[name].[ext]' }
+                { test: /\.css$/, loader: ExtractTextPlugin.extract({fallback:'style-loader',use:'css-loader'}) },
+                { test: /\.(png|jpg|jpeg|gif|svg)$/, loader: 'url-loader?limit=8192&name=./Images/[name].[ext]'},
+                { test: /\.(woff|woff2|svg|eot|ttf)$/, loader: 'file-loader?name=./Fonts/[name].[ext]' }
             ]
         },
         output: {
@@ -29,6 +29,7 @@ module.exports = (env) => {
         },
         plugins: [
             new CheckerPlugin(),
+            new ExtractTextPlugin({filename: "[name].css",disable:false}),
             new webpack.DefinePlugin({
                 'process.env': {
                     NODE_ENV: JSON.stringify(isDevBuild ? 'development' : 'production')

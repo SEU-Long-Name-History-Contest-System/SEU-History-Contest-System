@@ -133,7 +133,7 @@
   </ul>
 </blockquote>
 
-<h2 id="725"><i class="icon-file"></i> 8/9</h2>
+<h2 id="809"><i class="icon-file"></i> 8/9</h2>
 <blockquote>
   <ul>
     <li>添加背景轮换特效<br>
@@ -142,3 +142,42 @@
     <li>特别需要注意背景图的相对地址引用。如果在css中引用相对于css文件的图片地址是可行的，在ts文件中引用相对于ts文件的图片地址则报错；因此在ts文件中引用相对于main.js的地址则可以解决该问题。</li>
   </ul>
  </blockquote>
+
+<h2 id="813"><i class="icon-file"></i> 8/13</h2>
+<p>遇到bug：将分支合并到master以后，服务器无法像线下那样build，对font-awesome.min.css报错</p>
+<blockquote>
+      对几个重要问题的复习:
+  <ul>
+    <li>package.json</br>
+        dependences中插件需要发布到生产环境</br>
+        devdependences中插件只用于开发环境</br>
+      </li>
+    <li>module.exports</br>
+    返回一个JSON object
+    </li>
+    <li>extract-text-plugin</br>
+    将css从js中独立抽离出来。build对此报错。
+    </li>  
+    </ul>
+ </blockquote>
+    <li>查错流程：</br>
+    1.重新clone github上的内容，进行build检查</br>
+    2.尝试注释掉extract-text-webpack-plugin,在client中运行webpack未出问题，运行build.bat报错</br>
+    3.取消注释；去掉isdevbuild判断，对new extract-text-webpack-plugin添加{filename:[].css,disable:false}</br>
+    4. webpack与build运行均成功</br>
+  </li>
+
+ 
+ 
+<h2 id="814"><i class="icon-file"></i> 8/14</h2>
+
+  <ul>
+    <li>解决了引用js文件失败的问题:</br>
+        对于template形式的vue.html组件块，每个vue文件至多包含1个script，可以require其他依赖，但必须导出vue.js组件对象</br>
+        将export default class addcomponent extends vue 改为export default则可成功进行export</br>
+        </li>
+    <li>重写并完善了换页动画效果:</br>
+        原模板文件使用的是skel框架，其换页特效在vue中无法实现。对元素进行重新整理后，用jquery模拟了类似的换页特效。</br>
+        仍然需要注意换页中的引用问题，例如引用图片时，需在vue.html中按相对于html的路径引入；在ts文件中需按相对路径require，再从dist/Images中引入；在css文件中从dist/Images引入即可</br>
+    </li>
+  </ul>
